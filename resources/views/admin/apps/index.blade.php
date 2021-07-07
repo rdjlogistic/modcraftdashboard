@@ -46,9 +46,6 @@
                                 {{ $app->name ?? '' }}
                             </td>
                             <td>
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.apps.show', $app->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
                                
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.apps.edit', $app->id) }}">
                                         {{ trans('global.edit') }}
