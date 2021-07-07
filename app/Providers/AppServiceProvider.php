@@ -24,11 +24,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function($view) {
-            $view->with('search_categories', \App\Category::all());
-            $view->with('categories_all', \App\Category::all());
-            $view->with('search_cities', \App\City::all());
-            $view->with('search_prices', \App\Price::all());
-            $view->with('prices_all', \App\Price::all());
+            // $view->with('search_categories', \App\Category::all());
+            // $view->with('categories_all', \App\Category::all());
+            // $view->with('search_cities', \App\City::all());
+            // $view->with('search_prices', \App\Price::all());
+            // $view->with('prices_all', \App\Price::all());
 
         });
     }
