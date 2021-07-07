@@ -106,3 +106,8 @@ table.dataTable thead .sorting_desc {
     padding-left: 0px;
     padding-right: 0px;
 }
+
+
+#modcraft .dataTables_length , #modcraft .dt-buttons{
+ display: none !important;
+}

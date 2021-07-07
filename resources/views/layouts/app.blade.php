@@ -22,7 +22,7 @@
 </head>
 
 <body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
-    <div class="app flex-row align-items-center">
+    <div class="app flex-row align-items-center" id="modcraft">
         <div class="container">
             @yield("content")
         </div>
