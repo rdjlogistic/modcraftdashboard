@@ -6,7 +6,7 @@
                 <div class="row">
                 <div class="form-group col-md-9">
                     <select name="app_id" id="input" class="form-control select2">
-                        <option value=" "  selected>Select App</option>
+                        <option value=""  selected>Select App</option>
                         @foreach($apps as $id => $app)
                             <option value="{{ $id }}" {{ $id == $appid ? 'selected' : '' }}>{{ $app }}</option>
                         @endforeach
