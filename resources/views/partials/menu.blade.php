@@ -11,6 +11,15 @@
                     {{ trans('cruds.app.title') }}
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route("admin.mods.index") }}" class="nav-link {{ request()->is('admin/mods') || request()->is('admin/mods/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-cogs nav-icon">
+
+                    </i>
+                    {{ trans('cruds.mod.title') }}
+                </a>
+            </li>
           
             <li class="nav-item">
                 <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">

@@ -24,4 +24,8 @@ class App extends Model
         'deleted_at',
     ];
 
+    public function mods()
+    {
+        return $this->hasMany(Mod::class, 'app_id', 'id');
+    }
 }
