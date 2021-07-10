@@ -41,6 +41,7 @@ class CreateModsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mods');
+        
+        // Schema::dropIfExists('mods');
     }
 }
