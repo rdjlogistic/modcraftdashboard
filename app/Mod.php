@@ -33,29 +33,31 @@ class Mod extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'description',
+        'filepath',
+        'filename',
     ];
 
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')->width(50)->height(50);
-    }
+    // public function registerMediaConversions(Media $media = null): void
+    // {
+    //     $this->addMediaConversion('thumb')->width(50)->height(50);
+    // }
 
     public function app()
     {
         return $this->belongsTo(App::class, 'app_id');
     }
 
-    public function getLogoAttribute()
-    {
-        $file = $this->getMedia('logo')->last();
+    // public function getLogoAttribute()
+    // {
+    //     $file = $this->getMedia('logo')->last();
 
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-        }
+    //     if ($file) {
+    //         $file->url       = $file->getUrl();
+    //         $file->thumbnail = $file->getUrl('thumb');
+    //     }
 
-        return $file;
-    }
+    //     return $file;
+    // }
 
 
 }

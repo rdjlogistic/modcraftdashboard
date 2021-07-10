@@ -2,22 +2,22 @@
 @section('content')
 
 <?php if(isset($_GET['app_id'])) { $appid = $_GET['app_id']; } else { $appid = ''; }?>
-<form action="{{ route('admin.mods.index') }}" method="GET" style="margin-top: 20px;" enctype="multipart/form-data">
-                <div class="row">
-                <div class="form-group col-md-9">
-                    <select name="app_id" id="input" class="form-control select2">
-                        <option value=""  selected>Select App</option>
-                        @foreach($apps as $id => $app)
-                            <option value="{{ $id }}" {{ $id == $appid ? 'selected' : '' }}>{{ $app }}</option>
-                        @endforeach
-                    </select>
-                </div>
+    <form action="{{ route('admin.mods.index') }}" method="GET" style="margin-top: 20px;" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-group col-md-9">
+                <select name="app_id" id="input" class="form-control select2">
+                    <option value=""  selected>Select App</option>
+                    @foreach($apps as $id => $app)
+                        <option value="{{ $id }}" {{ $id == $appid ? 'selected' : '' }}>{{ $app }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-                <div class="col-md-3">
-                <input type="submit" class="btn btn-danger btn-sm" value="Filter" style="padding:5px 30px;">
-                </div>
-                </div>
-	    		</form>
+            <div class="col-md-3">
+            <input type="submit" class="btn btn-danger btn-sm" value="Filter" style="padding:5px 30px;">
+            </div>
+        </div>
+    </form>
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.mods.create") }}">
@@ -85,13 +85,14 @@
                             <td>
                                 {{ $mod->app->name ?? '' }}
                             </td>
-                            <td>
+                            <td>{{ $mod->filename}}</td>
+                            <!-- <td>
                                 @if($mod->logo)
                                     <a href="{{ $mod->logo->getUrl() }}" target="_blank">
                                         <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
                                     </a>
                                 @endif
-                            </td>
+                            </td> -->
                             <td>
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.mods.edit', $mod->id) }}">
                                         {{ trans('global.edit') }}

@@ -20,6 +20,9 @@ class StoreModRequest extends FormRequest
             'name'         => [
                 'required',
             ],
+            'filepath'   => [
+                'required',
+            ],
             
         ];
     }

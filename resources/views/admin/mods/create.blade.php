@@ -60,11 +60,10 @@
                     </em>
                 @endif
             </div>
-            <div class="form-group {{ $errors->has('logo') ? 'has-error' : '' }}">
+            <div class="form-group">
                 <label for="logo">{{ trans('cruds.mod.fields.logo') }}</label>
-                <div class="needsclick dropzone" id="logo-dropzone">
-
-                </div>
+                <input type="file" name="filepath" class="form-control" placeholder="file">
+                <input type="hidden" name="filename" value="filename">
                 @if($errors->has('logo'))
                     <em class="invalid-feedback">
                         {{ $errors->first('logo') }}

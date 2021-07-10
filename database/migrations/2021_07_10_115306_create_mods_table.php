@@ -24,6 +24,10 @@ class CreateModsTable extends Migration
 
             $table->longText('description')->nullable();
 
+            $table->string('filepath');
+
+            $table->string('filename');
+
             $table->timestamps();
 
             $table->softDeletes();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Mod;
 use App\App;
+use File;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyModRequest;
@@ -37,9 +38,23 @@ class ModsController extends Controller
     {
         $mod = Mod::create($request->all());
        
-        if ($request->input('logo', false)) {
-            $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
+        // if ($request->input('logo', false)) {
+        //     $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
+        // }
+
+        $input = $request->all();
+  
+        if ($image = $request->file('filepath')) {
+            $destinationPath = 'uploads/';
+            $input['filename'] = $image->getClientOriginalName();
+            $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
+            $image->move($destinationPath, $profileImage);
+            $input['filepath'] = "$profileImage";
+        }else{
+            unset($input['filepath']);
         }
+          
+        $mod->update($input);
 
         return redirect()->route('admin.mods.index');
     }
@@ -55,13 +70,30 @@ class ModsController extends Controller
     {
         $mod->update($request->all());
         
-        if ($request->input('logo', false)) {
-            if (!$mod->logo || $request->input('logo') !== $mod->logo->file_name) {
-                $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
-            }
-        } elseif ($mod->logo) {
-            $mod->logo->delete();
+        // if ($request->input('logo', false)) {
+        //     if (!$mod->logo || $request->input('logo') !== $mod->logo->file_name) {
+        //         $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
+        //     }
+        // } elseif ($mod->logo) {
+        //     $mod->logo->delete();
+        // }
+
+        $input = $request->all();
+  
+        if ($image = $request->file('filepath')) {
+            $destinationPath = 'uploads/';
+            $input['filename'] = $image->getClientOriginalName();
+            $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
+            $image->move($destinationPath, $profileImage);
+            $input['filepath'] = "$profileImage";
+            
+        }else{
+            unset($input['filepath']);
         }
+        
+
+        $mod->update($input);
+
 
         return redirect()->route('admin.mods.index');
     }
