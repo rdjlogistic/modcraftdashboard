@@ -3,6 +3,8 @@ Route::get('/', 'HomePageController@index');
 Route::get('search', 'HomePageController@table')->name('search');
 Route::get('apps/{app}', 'HomePageController@app')->name('app');
 Route::get('mods/{mod}', 'HomePageController@mod')->name('mod');
+Route::get('maps/{map}', 'HomePageController@map')->name('map');
+Route::get('skins/{skin}', 'HomePageController@skin')->name('skin');
 
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
@@ -29,6 +31,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('mods/destroy', 'ModsController@massDestroy')->name('mods.massDestroy');
     Route::post('mods/media', 'ModsController@storeMedia')->name('mods.storeMedia');
     Route::resource('mods', 'ModsController');
+
+    // Maps
+    Route::delete('maps/destroy', 'MapsController@massDestroy')->name('maps.massDestroy');
+    Route::post('maps/media', 'MapsController@storeMedia')->name('maps.storeMedia');
+    Route::resource('maps', 'MapsController');
+
+    // Skins
+    Route::delete('skins/destroy', 'SkinsController@massDestroy')->name('skins.massDestroy');
+    Route::post('skins/media', 'SkinsController@storeMedia')->name('skins.storeMedia');
+    Route::resource('skins', 'SkinsController');
 });
 
 Auth::routes();

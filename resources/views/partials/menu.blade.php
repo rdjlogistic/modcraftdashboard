@@ -20,6 +20,24 @@
                     {{ trans('cruds.mod.title') }}
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route("admin.maps.index") }}" class="nav-link {{ request()->is('admin/maps') || request()->is('admin/maps/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-cogs nav-icon">
+
+                    </i>
+                    {{ trans('cruds.map.title') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route("admin.skins.index") }}" class="nav-link {{ request()->is('admin/skins') || request()->is('admin/skins/*') ? 'active' : '' }}">
+                    <i class="fa-fw fas fa-cogs nav-icon">
+
+                    </i>
+                    {{ trans('cruds.skin.title') }}
+                </a>
+            </li>
           
             <li class="nav-item">
                 <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
