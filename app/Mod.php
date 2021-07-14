@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+// use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Mod extends Model implements HasMedia
 {
@@ -15,9 +15,9 @@ class Mod extends Model implements HasMedia
 
     public $table = 'mods';
 
-    protected $appends = [
-        'logo',
-    ];
+    // protected $appends = [
+    //     'logo',
+    // ];
 
     protected $dates = [
         'created_at',
@@ -47,17 +47,7 @@ class Mod extends Model implements HasMedia
         return $this->belongsTo(App::class, 'app_id');
     }
 
-    // public function getLogoAttribute()
-    // {
-    //     $file = $this->getMedia('logo')->last();
-
-    //     if ($file) {
-    //         $file->url       = $file->getUrl();
-    //         $file->thumbnail = $file->getUrl('thumb');
-    //     }
-
-    //     return $file;
-    // }
+    
 
 
 }

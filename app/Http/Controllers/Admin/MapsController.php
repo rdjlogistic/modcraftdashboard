@@ -46,7 +46,8 @@ class MapsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $input['filepath'] = "$profileImage";
+            $myPublicFolder = public_path();
+            $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
         }else{
             unset($input['filepath']);
         }
@@ -74,7 +75,8 @@ class MapsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $input['filepath'] = "$profileImage";
+            $myPublicFolder = public_path();
+            $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
             
         }else{
             unset($input['filepath']);

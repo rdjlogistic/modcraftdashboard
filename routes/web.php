@@ -41,6 +41,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('skins/destroy', 'SkinsController@massDestroy')->name('skins.massDestroy');
     Route::post('skins/media', 'SkinsController@storeMedia')->name('skins.storeMedia');
     Route::resource('skins', 'SkinsController');
+
+  
+    
+});
+
+Route::group(['prefix' => 'v1/api/', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+
+    Route::get('mods', 'ModsController@getModsByApp');
+
 });
 
 Auth::routes();
@@ -54,3 +63,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+

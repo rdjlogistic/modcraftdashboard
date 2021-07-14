@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
+Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1\Admin', 'middleware' => ['api']], function () {
     // Permissions
     Route::apiResource('permissions', 'PermissionsApiController');
 
@@ -9,14 +9,12 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Users
     Route::apiResource('users', 'UsersApiController');
+    
+    // Users
+    // Route::get('mods/{app_id}', 'ModsApiController@getModsByApp');
 
-    // // Cities
-    // Route::apiResource('cities', 'CitiesApiController');
+    Route::get('mods', 'ModsApiController@getModsByApp');
 
-    // // Categories
-    // Route::apiResource('categories', 'CategoriesApiController');
 
-    // // Companies
-    // Route::post('companies/media', 'CompaniesApiController@storeMedia')->name('companies.storeMedia');
-    // Route::apiResource('companies', 'CompaniesApiController');
 });
+

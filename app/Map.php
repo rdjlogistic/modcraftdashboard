@@ -47,17 +47,6 @@ class Map extends Model implements HasMedia
         return $this->belongsTo(App::class, 'app_id');
     }
 
-    // public function getLogoAttribute()
-    // {
-    //     $file = $this->getMedia('logo')->last();
-
-    //     if ($file) {
-    //         $file->url       = $file->getUrl();
-    //         $file->thumbnail = $file->getUrl('thumb');
-    //     }
-
-    //     return $file;
-    // }
-
+   
 
 }

@@ -55,18 +55,7 @@ class Company extends Model implements HasMedia
         return $this->belongsToMany(Price::class);
     }
 
-    public function getLogoAttribute()
-    {
-        $file = $this->getMedia('logo')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-        }
-
-        return $file;
-    }
-
+    
     public function scopeFilterByRequest($query, Request $request)
     {
         if ($request->input('city_id')) {

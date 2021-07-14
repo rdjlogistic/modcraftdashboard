@@ -10,9 +10,11 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyModRequest;
 use App\Http\Requests\StoreModRequest;
 use App\Http\Requests\UpdateModRequest;
+use App\Http\Resources\Admin\ModResource;
 use Gate;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Response;
+use Response;
 
 class ModsController extends Controller
 {
@@ -38,9 +40,7 @@ class ModsController extends Controller
     {
         $mod = Mod::create($request->all());
        
-        // if ($request->input('logo', false)) {
-        //     $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
-        // }
+       
 
         $input = $request->all();
   
@@ -49,7 +49,8 @@ class ModsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $input['filepath'] = "$profileImage";
+            $myPublicFolder = public_path();
+            $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
         }else{
             unset($input['filepath']);
         }
@@ -70,13 +71,6 @@ class ModsController extends Controller
     {
         $mod->update($request->all());
         
-        // if ($request->input('logo', false)) {
-        //     if (!$mod->logo || $request->input('logo') !== $mod->logo->file_name) {
-        //         $mod->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
-        //     }
-        // } elseif ($mod->logo) {
-        //     $mod->logo->delete();
-        // }
 
         $input = $request->all();
   
@@ -85,7 +79,8 @@ class ModsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $input['filepath'] = "$profileImage";
+            $myPublicFolder = public_path();
+            $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
             
         }else{
             unset($input['filepath']);
@@ -121,4 +116,5 @@ class ModsController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
 }
