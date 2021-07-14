@@ -13,6 +13,7 @@ use App\Http\Requests\UpdateMapRequest;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use URL;
 
 class MapsController extends Controller
 {
@@ -46,7 +47,7 @@ class MapsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $myPublicFolder = public_path();
+            $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
         }else{
             unset($input['filepath']);
@@ -75,7 +76,7 @@ class MapsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $myPublicFolder = public_path();
+            $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
             
         }else{
