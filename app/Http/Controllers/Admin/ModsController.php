@@ -49,7 +49,7 @@ class ModsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $myPublicFolder = public_path();
+            $myPublicFolder = base_url();
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
         }else{
             unset($input['filepath']);
@@ -79,7 +79,7 @@ class ModsController extends Controller
             $input['filename'] = $image->getClientOriginalName();
             $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
             $image->move($destinationPath, $profileImage);
-            $myPublicFolder = public_path();
+            $myPublicFolder = base_url();
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
             
         }else{
