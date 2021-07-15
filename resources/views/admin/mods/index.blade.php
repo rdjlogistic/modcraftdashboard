@@ -55,8 +55,11 @@
                         <th>
                             {{ trans('cruds.mod.fields.apps') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.mod.fields.logo') }}
+                        </th> -->
+                        <th>
+                            {{ trans('cruds.mod.fields.modimage') }}
                         </th>
                         <th>
                             &nbsp;
@@ -85,7 +88,8 @@
                             <td>
                                 {{ $mod->app->name ?? '' }}
                             </td>
-                            <td>{{ $mod->filename}}</td>
+                            <!-- <td>{{ $mod->filename}}</td> -->
+                            <td><img src="{{ $mod->modimage}}" style="height:50px; width:70px;"></td>
                             <!-- <td>
                                 @if($mod->logo)
                                     <a href="{{ $mod->logo->getUrl() }}" target="_blank">

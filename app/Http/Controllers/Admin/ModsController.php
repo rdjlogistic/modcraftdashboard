@@ -39,9 +39,6 @@ class ModsController extends Controller
 
     public function store(StoreModRequest $request)
     {
-        $mod = Mod::create($request->all());
-       
-       
 
         $input = $request->all();
   
@@ -56,7 +53,34 @@ class ModsController extends Controller
             unset($input['filepath']);
         }
           
+        if ($modimage = $request->file('modimage')) {
+            $destinationPath = 'uploads/';
+            $modprofileImage = date('YmdHis') . "_".  $modimage->getClientOriginalName();
+            $modimage->move($destinationPath, $modprofileImage);
+            $myPublicFolder = URL::to('/');
+            $input['modimage'] = "$myPublicFolder".'/'."$destinationPath"."$modprofileImage";
+        }else{
+            unset($input['modimage']);
+        }
+
+
+        $modsliderimages=array();
+        if($modsliderimages=$request->file('modsliderimages')){
+            foreach($modsliderimages as $modsliderimage){
+                $destinationPath = 'uploads/';
+                $modprofileImage1 = date('YmdHis') . "_".  $modsliderimage->getClientOriginalName();
+                $modsliderimage->move($destinationPath, $modprofileImage1);
+                $myPublicFolder = URL::to('/');
+                $modsliderimages[]="$myPublicFolder".'/'."$destinationPath"."$modprofileImage1";
+                
+            }
+        }
+        $input['modsliderimages'] = $modsliderimages;
+
+        $mod = Mod::create($request->all());
         $mod->update($input);
+
+        
 
         return redirect()->route('admin.mods.index');
     }
@@ -87,8 +111,32 @@ class ModsController extends Controller
             unset($input['filepath']);
         }
         
+        if ($modimage = $request->file('modimage')) {
+            $destinationPath = 'uploads/';
+            $modprofileImage = date('YmdHis') . "_".  $modimage->getClientOriginalName();
+            $modimage->move($destinationPath, $modprofileImage);
+            $myPublicFolder = URL::to('/');
+            $input['modimage'] = "$myPublicFolder".'/'."$destinationPath"."$modprofileImage";
+        }else{
+            unset($input['modimage']);
+        }
 
+        $modsliderimages=array();
+        if($modsliderimages=$request->file('modsliderimages')){
+            foreach($modsliderimages as $modsliderimage){
+                $destinationPath = 'uploads/';
+                $modprofileImage1 = date('YmdHis') . "_".  $modsliderimage->getClientOriginalName();
+                $modsliderimage->move($destinationPath, $modprofileImage1);
+                $myPublicFolder = URL::to('/');
+                $modsliderimages[]="$myPublicFolder".'/'."$destinationPath"."$modprofileImage1";
+                $input['modsliderimages'] = $modsliderimages;
+            }
+        }
         $mod->update($input);
+
+        Detail::insert( [
+            'modsliderimages'=>  implode("|",$modsliderimages),
+        ]);
 
 
         return redirect()->route('admin.mods.index');

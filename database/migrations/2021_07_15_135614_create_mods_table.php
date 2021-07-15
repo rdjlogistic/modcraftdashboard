@@ -18,15 +18,19 @@ class CreateModsTable extends Migration
 
             $table->string('name');
 
-            $table->string('platform')->nullable();
+            $table->string('platform');
 
-            $table->string('app_id')->nullable();
+            $table->string('app_id');
 
-            $table->longText('description')->nullable();
+            $table->longText('description');
 
             $table->string('filepath');
 
             $table->string('filename');
+
+            $table->string('modimage');
+
+            $table->json('modsliderimages');
 
             $table->timestamps();
 
@@ -41,7 +45,6 @@ class CreateModsTable extends Migration
      */
     public function down()
     {
-        
-        // Schema::dropIfExists('mods');
+        Schema::dropIfExists('mods');
     }
 }

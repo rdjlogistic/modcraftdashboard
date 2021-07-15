@@ -35,7 +35,14 @@ class Mod extends Model implements HasMedia
         'description',
         'filepath',
         'filename',
+        'modimage',
+        'modsliderimages',
     ];
+
+    protected $casts = [
+        'modsliderimages' => 'json'
+    ];
+    
 
     // public function registerMediaConversions(Media $media = null): void
     // {

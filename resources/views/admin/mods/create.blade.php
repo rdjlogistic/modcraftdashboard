@@ -73,6 +73,33 @@
                     {{ trans('cruds.mod.fields.logo_helper') }}
                 </p>
             </div>
+
+            <div class="form-group">
+                <label for="modimage">{{ trans('cruds.mod.fields.modimage') }}</label>
+                <input type="file" name="modimage" class="form-control" placeholder="file">
+                <input type="hidden" name="modimage" value="modimage">
+                @if($errors->has('modimage'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('modimage') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.modimage_helper') }}
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="modsliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>
+                <input type="file" name="modsliderimages[]" class="form-control" placeholder="file" multiple>
+                <input type="hidden" name="modsliderimages" value="modsliderimages">
+                @if($errors->has('modsliderimages'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('modsliderimages') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.modsliderimages_helper') }}
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
