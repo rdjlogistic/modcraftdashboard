@@ -79,7 +79,7 @@
             </div>
             <div class="form-group ">
                 <label for="modimage">{{ trans('cruds.mod.fields.modimage') }}</label>
-                <input type="file" name="filepath" class="form-control" placeholder="file">
+                <input type="file" name="modimage" class="form-control" placeholder="file">
                 @if($errors->has('modimage'))
                     <em class="invalid-feedback">
                         {{ $errors->first('modimage') }}
@@ -101,7 +101,11 @@
                 <p class="helper-block">
                     {{ trans('cruds.mod.fields.modsliderimages_helper') }}
                 </p>
-               <img src="{{ $mod->modsliderimages}}">
+                <?php 
+                foreach ($mod->modsliderimages as $modsliderimages) {?>
+                  <img src={{$modsliderimages}} style="height:100px; width:100px;">
+                 <?php  }?>
+            
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
