@@ -73,6 +73,32 @@
                     {{ trans('cruds.skin.fields.logo_helper') }}
                 </p>
             </div>
+            <div class="form-group">
+                <label for="skinimage">{{ trans('cruds.skin.fields.skinimage') }}</label>
+                <input type="file" name="skinimage" class="form-control" placeholder="file">
+                <input type="hidden" name="skinimage" value="skinimage">
+                @if($errors->has('skinimage'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('skinimage') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.skin.fields.skinimage_helper') }}
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="skinsliderimages">{{ trans('cruds.skin.fields.skinsliderimages') }}</label>
+                <input type="file" name="skinsliderimages[]" class="form-control" placeholder="file" multiple>
+                <input type="hidden" name="skinsliderimages" value="skinsliderimages">
+                @if($errors->has('skinsliderimages'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('skinsliderimages') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.skin.fields.skinsliderimages_helper') }}
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

@@ -55,8 +55,11 @@
                         <th>
                             {{ trans('cruds.skin.fields.apps') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.skin.fields.logo') }}
+                        </th> -->
+                        <th>
+                            {{ trans('cruds.skin.fields.skinimage') }}
                         </th>
                         <th>
                             &nbsp;
@@ -85,7 +88,8 @@
                             <td>
                                 {{ $skin->app->name ?? '' }}
                             </td>
-                            <td>{{ $skin->filename}}</td>
+                            <!-- <td>{{ $skin->filename}}</td> -->
+                            <td><img src="{{ $skin->skinimage}}" style="height:50px; width:70px;"></td>
                             <!-- <td>
                                 @if($skin->logo)
                                     <a href="{{ $skin->logo->getUrl() }}" target="_blank">

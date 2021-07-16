@@ -15,9 +15,9 @@ class Map extends Model implements HasMedia
 
     public $table = 'maps';
 
-    protected $appends = [
-        'logo',
-    ];
+    // protected $appends = [
+    //     'logo',
+    // ];
 
     protected $dates = [
         'created_at',
@@ -35,6 +35,12 @@ class Map extends Model implements HasMedia
         'description',
         'filepath',
         'filename',
+        'mapimage',
+        'mapsliderimages',
+    ];
+
+    protected $casts = [
+        'mapsliderimages' => 'json'
     ];
 
     // public function registerMediaConversions(Media $media = null): void

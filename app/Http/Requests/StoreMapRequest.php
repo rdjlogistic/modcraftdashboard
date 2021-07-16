@@ -23,6 +23,10 @@ class StoreMapRequest extends FormRequest
             'filepath'   => [
                 'required',
             ],
+            'modimage'   => [
+                'mimes:jpeg,png,svg |max:4096',
+              
+            ],
             
         ];
     }

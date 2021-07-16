@@ -88,7 +88,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.mod.fields.modimage_helper') }}
                 </p>
-               <img src="{{ $mod->modimage}}">
+               <img src="{{ $mod->modimage}}" style="height:100px; width:100px;">
             </div>
             <div class="form-group ">
                 <label for="modsliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>

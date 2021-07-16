@@ -15,6 +15,10 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1\Admin', 'middleware' => [
 
     Route::get('mods', 'ModsApiController@getModsByApp');
 
+    Route::get('maps', 'MapsApiController@getMapsByApp');
+
+    Route::get('skins', 'SkinsApiController@getSkinsByApp');
+
 
 });
 

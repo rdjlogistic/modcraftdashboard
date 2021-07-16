@@ -15,9 +15,9 @@ class Skin extends Model implements HasMedia
 
     public $table = 'skins';
 
-    protected $appends = [
-        'logo',
-    ];
+    // protected $appends = [
+    //     'logo',
+    // ];
 
     protected $dates = [
         'created_at',
@@ -35,6 +35,12 @@ class Skin extends Model implements HasMedia
         'description',
         'filepath',
         'filename',
+        'skinimage',
+        'skinsliderimages',
+    ];
+
+    protected $casts = [
+        'skinsliderimages' => 'json'
     ];
 
     // public function registerMediaConversions(Media $media = null): void

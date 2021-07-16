@@ -21,6 +21,10 @@ class UpdateMapRequest extends FormRequest
             'name'         => [
                 'required',
             ],
+            'modimage'   => [
+                'mimes:jpeg,png,svg |max:4096',
+              
+            ],
         ];
     }
 }

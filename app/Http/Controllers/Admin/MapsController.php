@@ -12,7 +12,8 @@ use App\Http\Requests\StoreMapRequest;
 use App\Http\Requests\UpdateMapRequest;
 use Gate;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Response;
+use Response;
 use URL;
 
 class MapsController extends Controller
@@ -37,10 +38,9 @@ class MapsController extends Controller
 
     public function store(StoreMapRequest $request)
     {
-        $map = Map::create($request->all());
-       
 
         $input = $request->all();
+        $mapsliderimagesarray=array();
   
         if ($image = $request->file('filepath')) {
             $destinationPath = 'uploads/';
@@ -52,7 +52,32 @@ class MapsController extends Controller
         }else{
             unset($input['filepath']);
         }
-          
+        
+        if ($mapimage = $request->file('mapimage')) {
+            $destinationPath = 'uploads/';
+            $mapprofileImage = date('YmdHis') . "_".  $mapimage->getClientOriginalName();
+            $mapimage->move($destinationPath, $mapprofileImage);
+            $myPublicFolder = URL::to('/');
+            $input['mapimage'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
+        }else{
+            unset($input['mapimage']);
+        }
+
+
+        
+        if($mapsliderimages=$request->file('mapsliderimages')){
+            foreach($mapsliderimages as $mapsliderimage){
+                $destinationPath = 'uploads/';
+                $mapprofileImage1 = date('YmdHis') . "_".  $mapsliderimage->getClientOriginalName();
+                $mapsliderimage->move($destinationPath, $mapprofileImage1);
+                $myPublicFolder = URL::to('/');
+                $mapsliderimagesarray[]="$myPublicFolder".'/'."$destinationPath"."$mapprofileImage1";
+                
+            }
+        }
+        $input['mapsliderimages'] = $mapsliderimagesarray;
+
+        $map = Map::create($request->all());
         $map->update($input);
 
         return redirect()->route('admin.maps.index');
@@ -68,6 +93,7 @@ class MapsController extends Controller
     public function update(UpdateMapRequest $request, Map $map)
     {
         $map->update($request->all());
+        $mapsliderimagesarray1=array();
 
         $input = $request->all();
   
@@ -84,6 +110,28 @@ class MapsController extends Controller
         }
         
 
+        if ($mapimage = $request->file('mapimage')) {
+            $destinationPath = 'uploads/';
+            $mapprofileImage = date('YmdHis') . "_".  $mapimage->getClientOriginalName();
+            $mapimage->move($destinationPath, $mapprofileImage);
+            $myPublicFolder = URL::to('/');
+            $input['mapimage'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
+        }else{
+            unset($input['mapimage']);
+        }
+
+        
+        if($mapsliderimages=$request->file('mapsliderimages')){
+            foreach($mapsliderimages as $mapsliderimage){
+                $destinationPath = 'uploads/';
+                $mapprofileImage1 = date('YmdHis') . "_".  $mapsliderimage->getClientOriginalName();
+                $mapsliderimage->move($destinationPath, $mapprofileImage1);
+                $myPublicFolder = URL::to('/');
+                $mapsliderimagesarray1[]="$myPublicFolder".'/'."$destinationPath"."$mapprofileImage1";
+               
+            }
+        }
+        $input['mapsliderimages'] = $mapsliderimagesarray1;
         $map->update($input);
 
 

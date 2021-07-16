@@ -55,8 +55,11 @@
                         <th>
                             {{ trans('cruds.map.fields.apps') }}
                         </th>
-                        <th>
+                        <!-- <th>
                             {{ trans('cruds.map.fields.logo') }}
+                        </th> -->
+                        <th>
+                            {{ trans('cruds.map.fields.mapimage') }}
                         </th>
                         <th>
                             &nbsp;
@@ -85,7 +88,8 @@
                             <td>
                                 {{ $map->app->name ?? '' }}
                             </td>
-                            <td>{{ $map->filename}}</td>
+                            <!-- <td>{{ $map->filename}}</td> -->
+                            <td><img src="{{ $map->mapimage}}" style="height:50px; width:70px;"></td>
                             <!-- <td>
                                 @if($map->logo)
                                     <a href="{{ $map->logo->getUrl() }}" target="_blank">

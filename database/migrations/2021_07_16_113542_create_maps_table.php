@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkinsTable extends Migration
+class CreateMapsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSkinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skins', function (Blueprint $table) {
+        Schema::create('maps', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
@@ -28,6 +28,10 @@ class CreateSkinsTable extends Migration
 
             $table->string('filename');
 
+            $table->string('mapimage');
+
+            $table->json('mapsliderimages');
+
             $table->timestamps();
 
             $table->softDeletes();
@@ -41,6 +45,6 @@ class CreateSkinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skins');
+        Schema::dropIfExists('maps');
     }
 }
