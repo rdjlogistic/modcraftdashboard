@@ -28,9 +28,25 @@ class MapsApiController extends Controller
 
     public function getMapsByApp(Request $request)
     {
-       
-        $maps = Map::where('app_id', $request->app_id)->get();
+    
+        $platforms = [$request->platform,'both'];
+        if($request->page){
+            if($request->platform == 'both'){
+                $maps = Map::where('app_id', $request->app_id )->paginate(2);
+            }
+            else{
+                $maps = Map::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(2);
+            }
+            
+        }
+        else if($request->platform == 'both'){
+            $maps = Map::where('app_id', $request->app_id )->paginate(2);
         
+        }
+        else{
+            
+            $maps = Map::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(2);
+        }
         return Response::json(array('data' => $maps));
     }
 
