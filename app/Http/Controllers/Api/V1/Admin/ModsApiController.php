@@ -33,7 +33,13 @@ class ModsApiController extends Controller
     public function getModsByApp(Request $request)
     {
         if($request->page){
-            $mods = Mod::where('app_id', $request->app_id )->paginate(2);
+            if($request->platform == 'both'){
+                $mods = Mod::where('app_id', $request->app_id )->paginate(2);
+            }
+            else{
+                $mods = Mod::where('app_id', $request->app_id )->where('platform' , $request->platform)->paginate(2);
+            }
+            
         }
         else if($request->platform == 'both'){
             $mods = Mod::where('app_id', $request->app_id )->paginate(2);
