@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1\Admin;
+// namespace Illuminate\Pagination;
 
 use App\Mod;
 use App\Http\Controllers\Controller;
@@ -9,8 +10,11 @@ use App\Http\Requests\UpdateModRequest;
 use App\Http\Resources\Admin\ModResource;
 use Gate;
 use Illuminate\Http\Request;
+// use Illuminate\Contracts\Pagination\Paginator as PaginatorContract;
 // use Symfony\Component\HttpFoundation\Response;
 use Response;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class ModsApiController extends Controller
 {
@@ -28,9 +32,16 @@ class ModsApiController extends Controller
 
     public function getModsByApp(Request $request)
     {
-       
-        $mods = Mod::where('app_id', $request->app_id)->get();
+        if($request->page){
+            $mods = Mod::where('app_id', $request->app_id )->paginate(2);
+        }
+        else if($request->platform == 'both'){
+            $mods = Mod::where('app_id', $request->app_id )->paginate(2);
         
+        }
+        else{
+            $mods = Mod::where('app_id', $request->app_id )->where('platform' , $request->platform)->paginate(2);
+        }
         return Response::json(array('data' => $mods));
     }
 
