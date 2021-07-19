@@ -78,11 +78,11 @@
                 <p>{{ $mod->filename}}</p>
             </div>
             <div class="form-group ">
-                <label for="modimage">{{ trans('cruds.mod.fields.modimage') }}</label>
-                <input type="file" name="modimage" class="form-control" placeholder="file">
-                @if($errors->has('modimage'))
+                <label for="image">{{ trans('cruds.mod.fields.modimage') }}</label>
+                <input type="file" name="image" class="form-control" placeholder="file">
+                @if($errors->has('image'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('modimage') }}
+                        {{ $errors->first('image') }}
                     </em>
                 @endif
                 <p class="helper-block">
@@ -91,11 +91,11 @@
                <img src="{{ $mod->modimage}}" style="height:100px; width:100px;">
             </div>
             <div class="form-group ">
-                <label for="modsliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>
-                <input type="file" name="modsliderimages[]" class="form-control" placeholder="file" multiple>
-                @if($errors->has('modsliderimages'))
+                <label for="sliderimages">{{ trans('cruds.mod.fields.sliderimages') }}</label>
+                <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
+                @if($errors->has('sliderimages'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('modsliderimages') }}
+                        {{ $errors->first('sliderimages') }}
                     </em>
                 @endif
                 <p class="helper-block">

@@ -75,10 +75,10 @@
             </div>
 
             <div class="form-group">
-                <label for="modimage">{{ trans('cruds.mod.fields.modimage') }}</label>
-                <input type="file" name="modimage" class="form-control" placeholder="file">
-                <input type="hidden" name="modimage" value="modimage">
-                @if($errors->has('modimage'))
+                <label for="image">{{ trans('cruds.mod.fields.modimage') }}</label>
+                <input type="file" name="image" class="form-control" placeholder="file">
+                <input type="hidden" name="image" value="image">
+                @if($errors->has('image'))
                     <em class="invalid-feedback">
                         {{ $errors->first('modimage') }}
                     </em>
@@ -88,12 +88,12 @@
                 </p>
             </div>
             <div class="form-group">
-                <label for="modsliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>
-                <input type="file" name="modsliderimages[]" class="form-control" placeholder="file" multiple>
-                <input type="hidden" name="modsliderimages" value="modsliderimages">
-                @if($errors->has('modsliderimages'))
+                <label for="sliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>
+                <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
+                <input type="hidden" name="sliderimages" value="sliderimages">
+                @if($errors->has('sliderimages'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('modsliderimages') }}
+                        {{ $errors->first('sliderimages') }}
                     </em>
                 @endif
                 <p class="helper-block">

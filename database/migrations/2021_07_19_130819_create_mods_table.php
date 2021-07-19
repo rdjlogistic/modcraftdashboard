@@ -28,9 +28,9 @@ class CreateModsTable extends Migration
 
             $table->string('filename');
 
-            $table->string('modimage');
+            $table->string('image');
 
-            $table->json('modsliderimages');
+            $table->json('sliderimages');
 
             $table->timestamps();
 

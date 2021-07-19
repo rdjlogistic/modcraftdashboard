@@ -89,7 +89,7 @@
                                 {{ $mod->app->name ?? '' }}
                             </td>
                             <!-- <td>{{ $mod->filename}}</td> -->
-                            <td><img src="{{ $mod->modimage}}" style="height:50px; width:70px;"></td>
+                            <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
                             <!-- <td>
                                 @if($mod->logo)
                                     <a href="{{ $mod->logo->getUrl() }}" target="_blank">

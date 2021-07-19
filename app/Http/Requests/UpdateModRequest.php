@@ -21,7 +21,7 @@ class UpdateModRequest extends FormRequest
             'name'         => [
                 'required',
             ],
-            'modimage'   => [
+            'image'   => [
                 'mimes:jpeg,png,svg |max:4096',
               
             ],
