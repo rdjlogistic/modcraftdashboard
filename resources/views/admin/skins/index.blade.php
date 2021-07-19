@@ -89,7 +89,7 @@
                                 {{ $skin->app->name ?? '' }}
                             </td>
                             <!-- <td>{{ $skin->filename}}</td> -->
-                            <td><img src="{{ $skin->skinimage}}" style="height:50px; width:70px;"></td>
+                            <td><img src="{{ $skin->image}}" style="height:50px; width:70px;"></td>
                             <!-- <td>
                                 @if($skin->logo)
                                     <a href="{{ $skin->logo->getUrl() }}" target="_blank">

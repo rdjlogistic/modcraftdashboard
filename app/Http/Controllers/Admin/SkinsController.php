@@ -53,19 +53,19 @@ class SkinsController extends Controller
             unset($input['filepath']);
         }
         
-        if ($skinimage = $request->file('skinimage')) {
+        if ($skinimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $skinprofileImage = date('YmdHis') . "_".  $skinimage->getClientOriginalName();
             $skinimage->move($destinationPath, $skinprofileImage);
             $myPublicFolder = URL::to('/');
-            $input['skinimage'] = "$myPublicFolder".'/'."$destinationPath"."$skinprofileImage";
+            $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$skinprofileImage";
         }else{
-            unset($input['skinimage']);
+            unset($input['image']);
         }
 
 
         
-        if($skinsliderimages=$request->file('skinsliderimages')){
+        if($skinsliderimages=$request->file('sliderimages')){
             foreach($skinsliderimages as $skinsliderimage){
                 $destinationPath = 'uploads/';
                 $skinprofileImage1 = date('YmdHis') . "_".  $skinsliderimage->getClientOriginalName();
@@ -75,7 +75,7 @@ class SkinsController extends Controller
                 
             }
         }
-        $input['skinsliderimages'] = $skinsliderimagesarray;
+        $input['sliderimages'] = $skinsliderimagesarray;
 
         $skin = Skin::create($request->all());
         $skin->update($input);
@@ -109,18 +109,18 @@ class SkinsController extends Controller
             unset($input['filepath']);
         }
         
-        if ($skinimage = $request->file('skinimage')) {
+        if ($skinimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $skinprofileImage = date('YmdHis') . "_".  $skinimage->getClientOriginalName();
             $skinimage->move($destinationPath, $skinprofileImage);
             $myPublicFolder = URL::to('/');
-            $input['skinimage'] = "$myPublicFolder".'/'."$destinationPath"."$skinprofileImage";
+            $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$skinprofileImage";
         }else{
-            unset($input['skinimage']);
+            unset($input['image']);
         }
 
         
-        if($skinsliderimages=$request->file('skinsliderimages')){
+        if($skinsliderimages=$request->file('sliderimages')){
             foreach($skinsliderimages as $skinsliderimage){
                 $destinationPath = 'uploads/';
                 $skinprofileImage1 = date('YmdHis') . "_".  $skinsliderimage->getClientOriginalName();
@@ -130,7 +130,7 @@ class SkinsController extends Controller
                
             }
         }
-        $input['skinsliderimages'] = $skinsliderimagesarray1;
+        $input['sliderimages'] = $skinsliderimagesarray1;
         $skin->update($input);
 
 

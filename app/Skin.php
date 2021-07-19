@@ -35,12 +35,12 @@ class Skin extends Model implements HasMedia
         'description',
         'filepath',
         'filename',
-        'skinimage',
-        'skinsliderimages',
+        'image',
+        'sliderimages',
     ];
 
     protected $casts = [
-        'skinsliderimages' => 'json'
+        'sliderimages' => 'json'
     ];
 
     // public function registerMediaConversions(Media $media = null): void

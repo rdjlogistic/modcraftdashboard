@@ -28,9 +28,9 @@ class CreateSkinsTable extends Migration
 
             $table->string('filename');
 
-            $table->string('skinimage');
+            $table->string('image');
 
-            $table->json('skinsliderimages');
+            $table->json('sliderimages');
 
             $table->timestamps();
 

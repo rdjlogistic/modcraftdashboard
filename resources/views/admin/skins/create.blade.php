@@ -74,12 +74,12 @@
                 </p>
             </div>
             <div class="form-group">
-                <label for="skinimage">{{ trans('cruds.skin.fields.skinimage') }}</label>
-                <input type="file" name="skinimage" class="form-control" placeholder="file">
-                <input type="hidden" name="skinimage" value="skinimage">
-                @if($errors->has('skinimage'))
+                <label for="image">{{ trans('cruds.skin.fields.skinimage') }}</label>
+                <input type="file" name="image" class="form-control" placeholder="file">
+                <input type="hidden" name="image" value="image">
+                @if($errors->has('image'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('skinimage') }}
+                        {{ $errors->first('image') }}
                     </em>
                 @endif
                 <p class="helper-block">
@@ -87,12 +87,12 @@
                 </p>
             </div>
             <div class="form-group">
-                <label for="skinsliderimages">{{ trans('cruds.skin.fields.skinsliderimages') }}</label>
-                <input type="file" name="skinsliderimages[]" class="form-control" placeholder="file" multiple>
-                <input type="hidden" name="skinsliderimages" value="skinsliderimages">
-                @if($errors->has('skinsliderimages'))
+                <label for="sliderimages">{{ trans('cruds.skin.fields.skinsliderimages') }}</label>
+                <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
+                <input type="hidden" name="sliderimages" value="sliderimages">
+                @if($errors->has('sliderimages'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('skinsliderimages') }}
+                        {{ $errors->first('sliderimages') }}
                     </em>
                 @endif
                 <p class="helper-block">
