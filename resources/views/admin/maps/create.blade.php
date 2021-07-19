@@ -74,12 +74,12 @@
                 </p>
             </div>
             <div class="form-group">
-                <label for="mapimage">{{ trans('cruds.map.fields.mapimage') }}</label>
-                <input type="file" name="mapimage" class="form-control" placeholder="file">
-                <input type="hidden" name="mapimage" value="mapimage">
-                @if($errors->has('mapimage'))
+                <label for="image">{{ trans('cruds.map.fields.mapimage') }}</label>
+                <input type="file" name="image" class="form-control" placeholder="file">
+                <input type="hidden" name="image" value="image">
+                @if($errors->has('image'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('mapimage') }}
+                        {{ $errors->first('image') }}
                     </em>
                 @endif
                 <p class="helper-block">
@@ -88,11 +88,11 @@
             </div>
             <div class="form-group">
                 <label for="mapsliderimages">{{ trans('cruds.map.fields.mapsliderimages') }}</label>
-                <input type="file" name="mapsliderimages[]" class="form-control" placeholder="file" multiple>
-                <input type="hidden" name="mapsliderimages" value="mapsliderimages">
+                <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
+                <input type="hidden" name="sliderimages" value="sliderimages">
                 @if($errors->has('mapsliderimages'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('mapsliderimages') }}
+                        {{ $errors->first('sliderimages') }}
                     </em>
                 @endif
                 <p class="helper-block">

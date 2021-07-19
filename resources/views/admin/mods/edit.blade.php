@@ -102,8 +102,8 @@
                     {{ trans('cruds.mod.fields.modsliderimages_helper') }}
                 </p>
                 <?php 
-                foreach ($mod->modsliderimages as $modsliderimages) {?>
-                  <img src={{$modsliderimages}} style="height:100px; width:100px;">
+                foreach ($mod->sliderimages as $sliderimages) {?>
+                  <img src={{$sliderimages}} style="height:100px; width:100px;">
                  <?php  }?>
             
             </div>

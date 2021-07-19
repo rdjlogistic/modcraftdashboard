@@ -78,32 +78,32 @@
                 <p>{{ $map->filename}}</p>
             </div>
             <div class="form-group ">
-                <label for="mapimage">{{ trans('cruds.map.fields.mapimage') }}</label>
-                <input type="file" name="mapimage" class="form-control" placeholder="file">
+                <label for="image">{{ trans('cruds.map.fields.mapimage') }}</label>
+                <input type="file" name="image" class="form-control" placeholder="file">
                 @if($errors->has('mapimage'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('mapimage') }}
+                        {{ $errors->first('image') }}
                     </em>
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.map.fields.mapimage_helper') }}
                 </p>
-               <img src="{{ $map->mapimage}}" style="height:100px; width:100px;">
+               <img src="{{ $map->image}}" style="height:100px; width:100px;">
             </div>
             <div class="form-group ">
-                <label for="mapsliderimages">{{ trans('cruds.map.fields.mapsliderimages') }}</label>
-                <input type="file" name="mapsliderimages[]" class="form-control" placeholder="file" multiple>
-                @if($errors->has('mapsliderimages'))
+                <label for="sliderimages">{{ trans('cruds.map.fields.mapsliderimages') }}</label>
+                <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
+                @if($errors->has('sliderimages'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('mapsliderimages') }}
+                        {{ $errors->first('sliderimages') }}
                     </em>
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.map.fields.mapsliderimages_helper') }}
                 </p>
                 <?php 
-                foreach ($map->mapsliderimages as $mapsliderimages) {?>
-                  <img src={{$mapsliderimages}} style="height:100px; width:100px;">
+                foreach ($map->sliderimages as $sliderimages) {?>
+                  <img src={{$sliderimages}} style="height:100px; width:100px;">
                  <?php  }?>
             
             </div>

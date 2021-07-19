@@ -53,19 +53,19 @@ class MapsController extends Controller
             unset($input['filepath']);
         }
         
-        if ($mapimage = $request->file('mapimage')) {
+        if ($mapimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $mapprofileImage = date('YmdHis') . "_".  $mapimage->getClientOriginalName();
             $mapimage->move($destinationPath, $mapprofileImage);
             $myPublicFolder = URL::to('/');
-            $input['mapimage'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
+            $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
         }else{
-            unset($input['mapimage']);
+            unset($input['image']);
         }
 
 
         
-        if($mapsliderimages=$request->file('mapsliderimages')){
+        if($mapsliderimages=$request->file('sliderimages')){
             foreach($mapsliderimages as $mapsliderimage){
                 $destinationPath = 'uploads/';
                 $mapprofileImage1 = date('YmdHis') . "_".  $mapsliderimage->getClientOriginalName();
@@ -75,7 +75,7 @@ class MapsController extends Controller
                 
             }
         }
-        $input['mapsliderimages'] = $mapsliderimagesarray;
+        $input['sliderimages'] = $mapsliderimagesarray;
 
         $map = Map::create($request->all());
         $map->update($input);
@@ -110,18 +110,18 @@ class MapsController extends Controller
         }
         
 
-        if ($mapimage = $request->file('mapimage')) {
+        if ($mapimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $mapprofileImage = date('YmdHis') . "_".  $mapimage->getClientOriginalName();
             $mapimage->move($destinationPath, $mapprofileImage);
             $myPublicFolder = URL::to('/');
-            $input['mapimage'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
+            $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$mapprofileImage";
         }else{
-            unset($input['mapimage']);
+            unset($input['image']);
         }
 
         
-        if($mapsliderimages=$request->file('mapsliderimages')){
+        if($mapsliderimages=$request->file('sliderimages')){
             foreach($mapsliderimages as $mapsliderimage){
                 $destinationPath = 'uploads/';
                 $mapprofileImage1 = date('YmdHis') . "_".  $mapsliderimage->getClientOriginalName();
@@ -131,7 +131,7 @@ class MapsController extends Controller
                
             }
         }
-        $input['mapsliderimages'] = $mapsliderimagesarray1;
+        $input['sliderimages'] = $mapsliderimagesarray1;
         $map->update($input);
 
 

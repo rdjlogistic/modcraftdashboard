@@ -35,12 +35,12 @@ class Map extends Model implements HasMedia
         'description',
         'filepath',
         'filename',
-        'mapimage',
-        'mapsliderimages',
+        'image',
+        'sliderimages',
     ];
 
     protected $casts = [
-        'mapsliderimages' => 'json'
+        'sliderimages' => 'json'
     ];
 
     // public function registerMediaConversions(Media $media = null): void

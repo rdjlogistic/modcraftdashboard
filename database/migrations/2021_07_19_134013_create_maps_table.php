@@ -28,9 +28,9 @@ class CreateMapsTable extends Migration
 
             $table->string('filename');
 
-            $table->string('mapimage');
+            $table->string('image');
 
-            $table->json('mapsliderimages');
+            $table->json('sliderimages');
 
             $table->timestamps();
 
