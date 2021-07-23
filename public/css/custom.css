@@ -176,3 +176,7 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
 
     border: 1px solid #fff;
 }
+
+table.dataTable tbody tr {
+    background-color: #2f353a !important;
+}
