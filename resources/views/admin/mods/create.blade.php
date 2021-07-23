@@ -86,6 +86,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.mod.fields.modimage_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div class="form-group">
                 <label for="sliderimages">{{ trans('cruds.mod.fields.modsliderimages') }}</label>
@@ -99,6 +100,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.mod.fields.modsliderimages_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

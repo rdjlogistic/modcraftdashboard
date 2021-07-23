@@ -47,11 +47,11 @@
                             </td>
                             <td>
                                
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.apps.edit', $app->id) }}">
+                                    <a class="btn btn-xs btn-info app-btn-edit" href="{{ route('admin.apps.edit', $app->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
 
-                                    <form action="{{ route('admin.apps.destroy', $app->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form class="app-btn-delete-form" action="{{ route('admin.apps.destroy', $app->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">

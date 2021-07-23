@@ -85,6 +85,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.map.fields.mapimage_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div class="form-group">
                 <label for="mapsliderimages">{{ trans('cruds.map.fields.mapsliderimages') }}</label>
@@ -98,6 +99,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.map.fields.mapsliderimages_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

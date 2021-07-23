@@ -5,7 +5,7 @@
             
             <li class="nav-item">
                 <a href="{{ route("admin.apps.index") }}" class="nav-link {{ request()->is('admin/apps') || request()->is('admin/apps/*') ? 'active' : '' }}">
-                    <i class="fa-fw fas fa-cogs nav-icon">
+                    <i class="fa fa-mobile nav-icon" style="font-size:24px">
 
                     </i>
                     {{ trans('cruds.app.title') }}
@@ -14,7 +14,7 @@
 
             <li class="nav-item">
                 <a href="{{ route("admin.mods.index") }}" class="nav-link {{ request()->is('admin/mods') || request()->is('admin/mods/*') ? 'active' : '' }}">
-                    <i class="fa-fw fas fa-cogs nav-icon">
+                    <i class="fa-fw fas fa-cogs nav-icon" >
 
                     </i>
                     {{ trans('cruds.mod.title') }}
@@ -23,7 +23,7 @@
 
             <li class="nav-item">
                 <a href="{{ route("admin.maps.index") }}" class="nav-link {{ request()->is('admin/maps') || request()->is('admin/maps/*') ? 'active' : '' }}">
-                    <i class="fa-fw fas fa-cogs nav-icon">
+                    <i class="fa fa-map-marker nav-icon" style="font-size:24px">
 
                     </i>
                     {{ trans('cruds.map.title') }}

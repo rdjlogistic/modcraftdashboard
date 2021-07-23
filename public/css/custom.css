@@ -111,3 +111,37 @@ table.dataTable thead .sorting_desc {
 #modcraft .dataTables_length , #modcraft .dt-buttons{
  display: none !important;
 }
+
+.app-body ,.login-page{
+    background-color: #2f353a;
+}
+
+.app-body .content{
+    color: white;
+}
+
+.btn-edit{
+    width: 40%;
+    margin-right: 10px;
+}
+
+.btn-delete-form{
+    width: 40%;
+}
+
+.btn-delete-form .btn-danger {
+    width: 100%;
+}
+
+.app-btn-edit{
+    width: 20%;
+    margin-right: 10px;
+}
+
+.app-btn-delete-form{
+    width: 20%;
+}
+
+.app-btn-delete-form .btn-danger {
+    width: 100%;
+}

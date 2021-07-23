@@ -85,6 +85,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.skin.fields.skinimage_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div class="form-group">
                 <label for="sliderimages">{{ trans('cruds.skin.fields.skinsliderimages') }}</label>
@@ -98,6 +99,7 @@
                 <p class="helper-block">
                     {{ trans('cruds.skin.fields.skinsliderimages_helper') }}
                 </p>
+                <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

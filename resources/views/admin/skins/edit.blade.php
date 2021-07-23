@@ -89,6 +89,7 @@
                     {{ trans('cruds.skin.fields.skinimage_helper') }}
                 </p>
                <img src="{{ $skin->image}}" style="height:100px; width:100px;">
+               <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div class="form-group ">
                 <label for="sliderimages">{{ trans('cruds.skin.fields.skinsliderimages') }}</label>
@@ -105,7 +106,7 @@
                 foreach ($skin->sliderimages as $sliderimages) {?>
                   <img src={{$sliderimages}} style="height:100px; width:100px;">
                  <?php  }?>
-            
+                 <p>images with 300X300 resolution will be more suitable</p>
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
