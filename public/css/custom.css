@@ -145,3 +145,34 @@ table.dataTable thead .sorting_desc {
 .app-btn-delete-form .btn-danger {
     width: 100%;
 }
+
+.login-page .card{
+    background-color: #2f353a;
+}
+
+.login-page .card h1, .login-page .card p ,.login-page .card label{
+    color: white !important;
+}
+
+
+.app-body .card , .app-body .card-header{
+    background-color: #2f353a;
+    color: white;
+}
+.app-body .card h1, .app-body .card p ,.app-body .card label,
+.app-body .card th, .app-body .card td{
+    color: white !important;
+}
+
+.app-header{
+    background-color: #2f353a;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before{
+
+    border: 1px solid #fff;
+}
