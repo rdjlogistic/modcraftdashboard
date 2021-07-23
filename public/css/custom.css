@@ -121,25 +121,25 @@ table.dataTable thead .sorting_desc {
 }
 
 .btn-edit{
-    width: 40%;
+    width: 100%;
     margin-right: 10px;
 }
 
 .btn-delete-form{
-    width: 40%;
-}
+    width: 100%;
 
+}
 .btn-delete-form .btn-danger {
     width: 100%;
 }
 
 .app-btn-edit{
-    width: 20%;
+    width: 100%;
     margin-right: 10px;
 }
 
 .app-btn-delete-form{
-    width: 20%;
+    width: 100%;
 }
 
 .app-btn-delete-form .btn-danger {
@@ -180,3 +180,4 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
 table.dataTable tbody tr {
     background-color: #2f353a !important;
 }
+
