@@ -47,9 +47,19 @@ class ModsApiController extends Controller
         
         }
         else if($request->search){
-            
+            if($request->platform){
+                if($request->platform == 'both'){
+                    
+                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+                }else{
+
+                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->whereIn('platform' , $platforms)->paginate(2);
+
+                }
+            }
+            else{
             $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
-        
+            }
         }
         else{
             
