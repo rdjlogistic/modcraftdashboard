@@ -30,7 +30,7 @@ class SkinsApiController extends Controller
     {
        
         $platforms = [$request->platform,'both'];
-        if($request->page){
+        if($request->page && $request->search == ''){
             if($request->platform == 'both'){
                 $skins = Skin::where('app_id', $request->app_id )->paginate(2);
             }
@@ -42,6 +42,21 @@ class SkinsApiController extends Controller
         else if($request->platform == 'both'){
             $skins = Skin::where('app_id', $request->app_id )->paginate(2);
         
+        }
+        else if($request->search){
+            if($request->platform){
+                if($request->platform == 'both'){
+                    
+                    $skins = Skin::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+                }else{
+
+                    $skins = Skin::where('name','LIKE','%'.$request->search.'%')->whereIn('platform' , $platforms)->paginate(2);
+
+                }
+            }
+            else{
+            $skins = Skin::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+            }
         }
         else{
             
