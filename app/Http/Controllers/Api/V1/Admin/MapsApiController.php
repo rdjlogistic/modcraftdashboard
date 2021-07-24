@@ -30,7 +30,7 @@ class MapsApiController extends Controller
     {
     
         $platforms = [$request->platform,'both'];
-        if($request->page){
+        if($request->page && $request->search == ''){
             if($request->platform == 'both'){
                 $maps = Map::where('app_id', $request->app_id )->paginate(2);
             }
@@ -43,9 +43,20 @@ class MapsApiController extends Controller
             $maps = Map::where('app_id', $request->app_id )->paginate(2);
         
         }
-        else if($request->serach){
-            $maps = Map::whereLike(['name', 'platform','app_id','description'], $request->serach )->paginate(2);
-        
+        else if($request->search){
+            if($request->platform){
+                if($request->platform == 'both'){
+                    
+                    $maps = Map::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+                }else{
+
+                    $maps = Map::where('name','LIKE','%'.$request->search.'%')->whereIn('platform' , $platforms)->paginate(2);
+
+                }
+            }
+            else{
+            $maps = Map::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+            }
         }
         else{
             
