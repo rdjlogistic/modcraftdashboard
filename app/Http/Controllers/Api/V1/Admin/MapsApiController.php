@@ -43,6 +43,10 @@ class MapsApiController extends Controller
             $maps = Map::where('app_id', $request->app_id )->paginate(2);
         
         }
+        else if($request->serach){
+            $maps = Map::whereLike(['name', 'platform','app_id','description'], $request->serach )->paginate(2);
+        
+        }
         else{
             
             $maps = Map::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(2);
