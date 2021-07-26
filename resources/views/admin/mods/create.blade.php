@@ -33,10 +33,10 @@
                     {{ trans('cruds.mod.fields.description_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('platform') ? 'has-error' : '' }}"">
+            <div class="form-group {{ $errors->has('platform') ? 'has-error' : '' }}">
                 <label for="platform">{{ trans('cruds.mod.fields.platform') }}</label>
-                <select name="platform" id="platform" class="form-control select2">
-                        <option value=" "  selected>Select Platform</option>
+                <select name="platform" id="platform" class="form-control select2" required>
+                        <option value=""  selected>Select Platform</option>
                         <option value="android" >Android</option>
                         <option value="ios" >Ios</option>
                         <option value="both" >Both</option>

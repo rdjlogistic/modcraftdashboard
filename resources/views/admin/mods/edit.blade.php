@@ -37,7 +37,7 @@
             <div class="form-group {{ $errors->has('platform') ? 'has-error' : '' }}">
                 <label for="platform">{{ trans('cruds.mod.fields.platform') }}</label>
                
-                <select name="platform" id="platform" class="form-control select2">
+                <select name="platform" id="platform" class="form-control select2" required>
                         <option value=" "  {{ $mod->platform == ' ' ? 'selected' : '' }}>Select Platform</option>
                         <option value="android" {{ $mod->platform == 'android' ? 'selected' : '' }}>Android</option>
                         <option value="ios" {{ $mod->platform == 'ios' ? 'selected' : '' }}>Ios</option>

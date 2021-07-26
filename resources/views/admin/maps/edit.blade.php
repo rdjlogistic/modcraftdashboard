@@ -37,8 +37,8 @@
             <div class="form-group {{ $errors->has('platform') ? 'has-error' : '' }}">
                 <label for="platform">{{ trans('cruds.map.fields.platform') }}</label>
                
-                <select name="platform" id="platform" class="form-control select2">
-                        <option value=" "  {{ $map->platform == ' ' ? 'selected' : '' }}>Select Platform</option>
+                <select name="platform" id="platform" class="form-control select2" required>
+                        <option value=""  {{ $map->platform == ' ' ? 'selected' : '' }}>Select Platform</option>
                         <option value="android" {{ $map->platform == 'android' ? 'selected' : '' }}>Android</option>
                         <option value="ios" {{ $map->platform == 'ios' ? 'selected' : '' }}>Ios</option>
                         <option value="both" {{ $map->platform == 'both' ? 'selected' : '' }}>Both</option>
@@ -64,6 +64,43 @@
                 @endif
             </div>
 
+            <div class="form-group {{ $errors->has('facebooklink') ? 'has-error' : '' }}">
+                <label for="facebooklink">{{ trans('cruds.mod.fields.facebooklink') }}</label>
+                <input title="Please Enter Valid Facebook URL" type="text" id="facebooklink" name="facebooklink" class="form-control" value="{{ old('facebooklink', isset($mod) ? $mod->facebooklink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
+                @if($errors->has('facebooklink'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('facebooklink') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.fblink_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('instagramlink') ? 'has-error' : '' }}">
+                <label for="instagramlink">{{ trans('cruds.mod.fields.instalink') }}</label>
+                <input title="Please Enter Valid Instagram URL" type="text" id="instagramlink" name="instagramlink" class="form-control" value="{{ old('instagramlink', isset($mod) ? $mod->instagramlink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.instagram|m\.instagram|instagram)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
+                @if($errors->has('instagramlink'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('instagramlink') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.instalink_helper') }}
+                </p>
+            </div>
+
+            <div class="form-group {{ $errors->has('youtubelink') ? 'has-error' : '' }}">
+                <label for="youtubelink">{{ trans('cruds.mod.fields.youtubelink') }}</label>
+                <input title="Please Enter Valid YouTube URL" type="text" id="youtubelink" name="youtubelink" class="form-control" value="{{ old('youtubelink', isset($mod) ? $mod->youtubelink : '') }}" pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$">
+                @if($errors->has('youtubelink'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('youtubelink') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.ytlink_helper') }}
+                </p>
+            </div>
             <div class="form-group ">
                 <label for="logo">{{ trans('cruds.map.fields.logo') }}</label>
                 <input type="file" name="filepath" class="form-control" placeholder="file">
