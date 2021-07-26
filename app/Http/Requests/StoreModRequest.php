@@ -6,6 +6,7 @@ use App\Mod;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Validation\Validator;
 
 class StoreModRequest extends FormRequest
 {

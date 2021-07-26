@@ -24,6 +24,12 @@ class CreateModsTable extends Migration
 
             $table->longText('description');
 
+            $table->string('facebooklink');
+
+            $table->string('instagramlink');
+
+            $table->string('youtubelink');
+
             $table->string('filepath');
 
             $table->string('filename');
