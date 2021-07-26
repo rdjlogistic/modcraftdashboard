@@ -35,35 +35,35 @@ class ModsApiController extends Controller
         $platforms = [$request->platform,'both'];
         if($request->page && $request->search == ''){
             if($request->platform == 'both'){
-                $mods = Mod::where('app_id', $request->app_id )->paginate(2);
+                $mods = Mod::where('app_id', $request->app_id )->paginate(10);
             }
             else{
-                $mods = Mod::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(2);
+                $mods = Mod::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(10);
             }
             
         }
         else if($request->platform == 'both'){
-            $mods = Mod::where('app_id', $request->app_id )->paginate(2);
+            $mods = Mod::where('app_id', $request->app_id )->paginate(10);
         
         }
         else if($request->search){
             if($request->platform){
                 if($request->platform == 'both'){
                     
-                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(10); 
                 }else{
 
-                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->whereIn('platform' , $platforms)->paginate(2);
+                    $mods = Mod::where('name','LIKE','%'.$request->search.'%')->whereIn('platform' , $platforms)->paginate(10);
 
                 }
             }
             else{
-            $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(2); 
+            $mods = Mod::where('name','LIKE','%'.$request->search.'%')->paginate(10); 
             }
         }
         else{
             
-            $mods = Mod::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(2);
+            $mods = Mod::where('app_id', $request->app_id )->whereIn('platform' , $platforms)->paginate(10);
         }
         return Response::json(array('data' => $mods));
     }
