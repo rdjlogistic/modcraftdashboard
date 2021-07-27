@@ -80,7 +80,8 @@
                                 {{ $mod->name ?? '' }}
                             </td>
                             <td>
-                                {{ $mod->description ?? '' }}
+                                <!-- {{ $mod->description ?? '' }} -->
+                                {{ Str::limit($mod->description, 150) }}
                             </td>
                             <td>
                                 {{ $mod->platform ?? '' }}
@@ -110,7 +111,52 @@
                             </td>
                             
                         </tr>
-                       <?php }?>
+                       <?php } else {
+                           if($appid == ''){ ?>
+                        
+                        <tr data-entry-id="{{ $mod->id }}">
+                            <td>
+
+                            </td>
+                            <td>
+                                {{ $mod->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ $mod->name ?? '' }}
+                            </td>
+                            <td>
+                                <!-- {{ $mod->description ?? '' }} -->
+                                {{ Str::limit($mod->description, 150) }}
+                            </td>
+                            <td>
+                                {{ $mod->platform ?? '' }}
+                            </td>
+                            <td>
+                                {{ $mod->app->name ?? '' }}
+                            </td>
+                            <!-- <td>{{ $mod->filename}}</td> -->
+                            <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
+                            <!-- <td>
+                                @if($mod->logo)
+                                    <a href="{{ $mod->logo->getUrl() }}" target="_blank">
+                                        <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                    </a>
+                                @endif
+                            </td> -->
+                            <td>
+                                    <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.mods.edit', $mod->id) }}">
+                                        {{ trans('global.edit') }}
+                                    </a>
+                                
+                                    <form class="btn-delete-form" action="{{ route('admin.mods.destroy', $mod->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                    </form>
+                            </td>
+                            
+                        </tr>
+                       <?php } }?>
                     @endforeach
                 </tbody>
             </table>

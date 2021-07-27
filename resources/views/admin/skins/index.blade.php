@@ -80,7 +80,7 @@
                                 {{ $skin->name ?? '' }}
                             </td>
                             <td>
-                                {{ $skin->description ?? '' }}
+                                {{ Str::limit($skin->description, 150) }}
                             </td>
                             <td>
                                 {{ $skin->platform ?? '' }}
@@ -110,7 +110,51 @@
                             </td>
                             
                         </tr>
-                       <?php }?>
+                       <?php } else{ 
+                           if($appid == ''){ ?>
+                           <tr data-entry-id="{{ $skin->id }}">
+                            <td>
+
+                            </td>
+                            <td>
+                                {{ $skin->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ $skin->name ?? '' }}
+                            </td>
+                            <td>
+                                {{ Str::limit($skin->description, 150) }}
+                            </td>
+                            <td>
+                                {{ $skin->platform ?? '' }}
+                            </td>
+                            <td>
+                                {{ $skin->app->name ?? '' }}
+                            </td>
+                            <!-- <td>{{ $skin->filename}}</td> -->
+                            <td><img src="{{ $skin->image}}" style="height:50px; width:70px;"></td>
+                            <!-- <td>
+                                @if($skin->logo)
+                                    <a href="{{ $skin->logo->getUrl() }}" target="_blank">
+                                        <img src="{{ $skin->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                    </a>
+                                @endif
+                            </td> -->
+                            <td>
+                                    <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.skins.edit', $skin->id) }}">
+                                        {{ trans('global.edit') }}
+                                    </a>
+                                
+                                    <form class="btn-delete-form" action="{{ route('admin.skins.destroy', $skin->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                    </form>
+                            </td>
+                            
+                        </tr>
+                       <?php } }?>
+
                     @endforeach
                 </tbody>
             </table>
