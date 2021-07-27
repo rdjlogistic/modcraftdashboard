@@ -141,7 +141,7 @@
                 </p>
                 <?php 
                 foreach ($mod->sliderimages as $sliderimages) {?>
-                  <img src={{$sliderimages}} style="height:100px; width:100px;">
+                  <img src="{{$sliderimages}}" style="height:100px; width:100px;">
                  <?php  }?>
                  <p>images with 300X300 resolution will be more suitable</p>
             </div>

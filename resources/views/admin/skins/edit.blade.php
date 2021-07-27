@@ -65,40 +65,40 @@
             </div>
 
             <div class="form-group {{ $errors->has('facebooklink') ? 'has-error' : '' }}">
-                <label for="facebooklink">{{ trans('cruds.mod.fields.facebooklink') }}</label>
-                <input title="Please Enter Valid Facebook URL" type="text" id="facebooklink" name="facebooklink" class="form-control" value="{{ old('facebooklink', isset($mod) ? $mod->facebooklink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
+                <label for="facebooklink">{{ trans('cruds.skin.fields.facebooklink') }}</label>
+                <input title="Please Enter Valid Facebook URL" type="text" id="facebooklink" name="facebooklink" class="form-control" value="{{ old('facebooklink', isset($skin) ? $skin->facebooklink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
                 @if($errors->has('facebooklink'))
                     <em class="invalid-feedback">
                         {{ $errors->first('facebooklink') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.mod.fields.fblink_helper') }}
+                    {{ trans('cruds.skin.fields.fblink_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('instagramlink') ? 'has-error' : '' }}">
-                <label for="instagramlink">{{ trans('cruds.mod.fields.instalink') }}</label>
-                <input title="Please Enter Valid Instagram URL" type="text" id="instagramlink" name="instagramlink" class="form-control" value="{{ old('instagramlink', isset($mod) ? $mod->instagramlink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.instagram|m\.instagram|instagram)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
+                <label for="instagramlink">{{ trans('cruds.skin.fields.instalink') }}</label>
+                <input title="Please Enter Valid Instagram URL" type="text" id="instagramlink" name="instagramlink" class="form-control" value="{{ old('instagramlink', isset($skin) ? $skin->instagramlink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.instagram|m\.instagram|instagram)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
                 @if($errors->has('instagramlink'))
                     <em class="invalid-feedback">
                         {{ $errors->first('instagramlink') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.mod.fields.instalink_helper') }}
+                    {{ trans('cruds.skin.fields.instalink_helper') }}
                 </p>
             </div>
 
             <div class="form-group {{ $errors->has('youtubelink') ? 'has-error' : '' }}">
-                <label for="youtubelink">{{ trans('cruds.mod.fields.youtubelink') }}</label>
-                <input title="Please Enter Valid YouTube URL" type="text" id="youtubelink" name="youtubelink" class="form-control" value="{{ old('youtubelink', isset($mod) ? $mod->youtubelink : '') }}" pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$">
+                <label for="youtubelink">{{ trans('cruds.skin.fields.youtubelink') }}</label>
+                <input title="Please Enter Valid YouTube URL" type="text" id="youtubelink" name="youtubelink" class="form-control" value="{{ old('youtubelink', isset($skin) ? $skin->youtubelink : '') }}" pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$">
                 @if($errors->has('youtubelink'))
                     <em class="invalid-feedback">
                         {{ $errors->first('youtubelink') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.mod.fields.ytlink_helper') }}
+                    {{ trans('cruds.skin.fields.ytlink_helper') }}
                 </p>
             </div>
 
@@ -142,7 +142,7 @@
                 </p>
                 <?php 
                 foreach ($skin->sliderimages as $sliderimages) {?>
-                  <img src={{$sliderimages}} style="height:100px; width:100px;">
+                  <img src="{{$sliderimages}}" style="height:100px; width:100px;">
                  <?php  }?>
                  <p>images with 300X300 resolution will be more suitable</p>
             </div>
