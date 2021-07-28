@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModsTable extends Migration
+class CreateSkinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class CreateModsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mods', function (Blueprint $table) {
+        Schema::create('skins', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
 
-            $table->string('platform');
+            $table->string('platform')->nullable();
 
-            $table->string('app_id');
+            $table->string('app_id')->nullable();
 
-            $table->longText('description');
+            $table->longText('description')->nullable();
 
-            $table->string('facebooklink');
+            $table->string('facebooklink')->nullable();;
 
-            $table->string('instagramlink');
+            $table->string('instagramlink')->nullable();;
 
-            $table->string('youtubelink');
+            $table->string('youtubelink')->nullable();;
 
             $table->string('filepath');
 
@@ -36,7 +36,7 @@ class CreateModsTable extends Migration
 
             $table->string('image');
 
-            $table->json('sliderimages');
+            $table->json('sliderimages')->nullable();;
 
             $table->timestamps();
 
@@ -51,6 +51,6 @@ class CreateModsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mods');
+        Schema::dropIfExists('skins');
     }
 }

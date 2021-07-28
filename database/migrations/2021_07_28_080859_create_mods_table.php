@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMapsTable extends Migration
+class CreateModsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class CreateMapsTable extends Migration
      */
     public function up()
     {
-        Schema::create('maps', function (Blueprint $table) {
+        Schema::create('mods', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
 
-            $table->string('platform')->nullable();
+            $table->string('platform');
 
-            $table->string('app_id')->nullable();
+            $table->string('app_id');
 
             $table->longText('description')->nullable();
 
-            $table->string('facebooklink');
+            $table->string('facebooklink')->nullable();
 
-            $table->string('instagramlink');
+            $table->string('instagramlink')->nullable();
 
-            $table->string('youtubelink');
+            $table->string('youtubelink')->nullable();
 
             $table->string('filepath');
 
@@ -36,7 +36,7 @@ class CreateMapsTable extends Migration
 
             $table->string('image');
 
-            $table->json('sliderimages');
+            $table->json('sliderimages')->nullable();
 
             $table->timestamps();
 
@@ -51,6 +51,6 @@ class CreateMapsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maps');
+        Schema::dropIfExists('mods');
     }
 }
