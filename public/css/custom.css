@@ -1,3 +1,7 @@
+body {
+    font-family: 'Montserrat', sans-serif  !important;
+}
+
 .ck-editor__editable,
 textarea {
     min-height: 150px;
@@ -159,9 +163,9 @@ table.dataTable thead .sorting_desc {
     background-color: #2f353a;
     color: white;
 }
-.app-body .card h1, .app-body .card p ,.app-body .card label,
-.app-body .card th, .app-body .card td{
-    color: white !important;
+.app-body .card h1, .app-body .card p, .app-body .card label, .app-body .card th, .app-body .card td {
+    color: #2f353a !important;
+    font-size: .875rem;
 }
 
 .app-header{
@@ -199,9 +203,20 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 .table-custom-main .dataTables_scrollBody {
      background-color: #fff;
 }
-.table-custom-main  table.dataTable tbody tr {
-    background-color: #ffff;
+.table-custom-main table.dataTable tbody tr {
+    background-color: #ffff !important;
 }
  .app-body .table-custom-main  .card th, .app-body .table-custom-main  .card td {
     color: #2f353a !important;
+}
+.app-body .card, .app-body .card-header {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+}
+.app-btn-edit {
+    margin-bottom: 10px;
+}
+.btn-group-xs > .btn, .btn-xs {
+    padding: 6px 5px;
 }
