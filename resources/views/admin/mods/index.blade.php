@@ -30,139 +30,140 @@
     <div class="card-header">
         {{ trans('cruds.mod.title_singular') }} {{ trans('global.list') }}
     </div>
+    <div class="table-custom-main">
+        <div class="card-body">
+        
+            <div class="table-responsive">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-Mod">
+                    <thead>
+                        <tr>
+                            <th width="10">
 
-    <div class="card-body">
-    
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Mod">
-                <thead>
-                    <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
-                            {{ trans('cruds.mod.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.mod.fields.name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.mod.fields.description') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.mod.fields.platform') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.mod.fields.apps') }}
-                        </th>
-                        <!-- <th>
-                            {{ trans('cruds.mod.fields.logo') }}
-                        </th> -->
-                        <th>
-                            {{ trans('cruds.mod.fields.modimage') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($mods as $key => $mod)
-                        <?php if($mod->app->id == $appid){?>
-                        <tr data-entry-id="{{ $mod->id }}">
-                            <td>
-
-                            </td>
-                            <td>
-                                {{ $mod->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $mod->name ?? '' }}
-                            </td>
-                            <td>
-                                <!-- {{ $mod->description ?? '' }} -->
-                                {{ Str::limit($mod->description, 150) }}
-                            </td>
-                            <td>
-                                {{ $mod->platform ?? '' }}
-                            </td>
-                            <td>
-                                {{ $mod->app->name ?? '' }}
-                            </td>
-                            <!-- <td>{{ $mod->filename}}</td> -->
-                            <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
-                            <!-- <td>
-                                @if($mod->logo)
-                                    <a href="{{ $mod->logo->getUrl() }}" target="_blank">
-                                        <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
-                                    </a>
-                                @endif
-                            </td> -->
-                            <td>
-                                    <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.mods.edit', $mod->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                
-                                    <form class="btn-delete-form" action="{{ route('admin.mods.destroy', $mod->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                            </td>
-                            
+                            </th>
+                            <th>
+                                {{ trans('cruds.mod.fields.id') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.mod.fields.name') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.mod.fields.description') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.mod.fields.platform') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.mod.fields.apps') }}
+                            </th>
+                            <!-- <th>
+                                {{ trans('cruds.mod.fields.logo') }}
+                            </th> -->
+                            <th>
+                                {{ trans('cruds.mod.fields.modimage') }}
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
                         </tr>
-                       <?php } else {
-                           if($appid == ''){ ?>
-                        
-                        <tr data-entry-id="{{ $mod->id }}">
-                            <td>
+                    </thead>
+                    <tbody>
+                        @foreach($mods as $key => $mod)
+                            <?php if($mod->app->id == $appid){?>
+                            <tr data-entry-id="{{ $mod->id }}">
+                                <td>
 
-                            </td>
-                            <td>
-                                {{ $mod->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $mod->name ?? '' }}
-                            </td>
-                            <td>
-                                <!-- {{ $mod->description ?? '' }} -->
-                                {{ Str::limit($mod->description, 150) }}
-                            </td>
-                            <td>
-                                {{ $mod->platform ?? '' }}
-                            </td>
-                            <td>
-                                {{ $mod->app->name ?? '' }}
-                            </td>
-                            <!-- <td>{{ $mod->filename}}</td> -->
-                            <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
-                            <!-- <td>
-                                @if($mod->logo)
-                                    <a href="{{ $mod->logo->getUrl() }}" target="_blank">
-                                        <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
-                                    </a>
-                                @endif
-                            </td> -->
-                            <td>
-                                    <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.mods.edit', $mod->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
+                                </td>
+                                <td>
+                                    {{ $mod->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mod->name ?? '' }}
+                                </td>
+                                <td>
+                                    <!-- {{ $mod->description ?? '' }} -->
+                                    {{ Str::limit($mod->description, 150) }}
+                                </td>
+                                <td>
+                                    {{ $mod->platform ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mod->app->name ?? '' }}
+                                </td>
+                                <!-- <td>{{ $mod->filename}}</td> -->
+                                <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
+                                <!-- <td>
+                                    @if($mod->logo)
+                                        <a href="{{ $mod->logo->getUrl() }}" target="_blank">
+                                            <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                        </a>
+                                    @endif
+                                </td> -->
+                                <td>
+                                        <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.mods.edit', $mod->id) }}">
+                                            {{ trans('global.edit') }}
+                                        </a>
+                                    
+                                        <form class="btn-delete-form" action="{{ route('admin.mods.destroy', $mod->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                        </form>
+                                </td>
                                 
-                                    <form class="btn-delete-form" action="{{ route('admin.mods.destroy', $mod->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                            </td>
+                            </tr>
+                        <?php } else {
+                            if($appid == ''){ ?>
                             
-                        </tr>
-                       <?php } }?>
-                    @endforeach
-                </tbody>
-            </table>
+                            <tr data-entry-id="{{ $mod->id }}">
+                                <td>
+
+                                </td>
+                                <td>
+                                    {{ $mod->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mod->name ?? '' }}
+                                </td>
+                                <td>
+                                    <!-- {{ $mod->description ?? '' }} -->
+                                    {{ Str::limit($mod->description, 150) }}
+                                </td>
+                                <td>
+                                    {{ $mod->platform ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $mod->app->name ?? '' }}
+                                </td>
+                                <!-- <td>{{ $mod->filename}}</td> -->
+                                <td><img src="{{ $mod->image}}" style="height:50px; width:70px;"></td>
+                                <!-- <td>
+                                    @if($mod->logo)
+                                        <a href="{{ $mod->logo->getUrl() }}" target="_blank">
+                                            <img src="{{ $mod->logo->getUrl('thumb') }}" width="50px" height="50px">
+                                        </a>
+                                    @endif
+                                </td> -->
+                                <td>
+                                        <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.mods.edit', $mod->id) }}">
+                                            {{ trans('global.edit') }}
+                                        </a>
+                                    
+                                        <form class="btn-delete-form" action="{{ route('admin.mods.destroy', $mod->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                        </form>
+                                </td>
+                                
+                            </tr>
+                        <?php } }?>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
-
-
     </div>
 </div>
 @endsection

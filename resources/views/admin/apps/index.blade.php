@@ -13,59 +13,60 @@
     <div class="card-header">
         {{ trans('cruds.app.title_singular') }} {{ trans('global.list') }}
     </div>
+    <div class="table-custom-main">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-App">
+                    <thead>
+                        <tr>
+                            <th width="10">
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-App">
-                <thead>
-                    <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
-                            {{ trans('cruds.app.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.app.fields.name') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($apps as $key => $app)
-                        <tr data-entry-id="{{ $app->id }}">
-                            <td>
-
-                            </td>
-                            <td>
-                                {{ $app->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $app->name ?? '' }}
-                            </td>
-                            <td>
-                               
-                                    <a class="btn btn-xs btn-info app-btn-edit" href="{{ route('admin.apps.edit', $app->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-
-                                    <form class="app-btn-delete-form" action="{{ route('admin.apps.destroy', $app->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-
-                            </td>
-
+                            </th>
+                            <th>
+                                {{ trans('cruds.app.fields.id') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.app.fields.name') }}
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach($apps as $key => $app)
+                            <tr data-entry-id="{{ $app->id }}">
+                                <td>
+
+                                </td>
+                                <td>
+                                    {{ $app->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $app->name ?? '' }}
+                                </td>
+                                <td>
+                                
+                                        <a class="btn btn-xs btn-info app-btn-edit" href="{{ route('admin.apps.edit', $app->id) }}">
+                                            {{ trans('global.edit') }}
+                                        </a>
+
+                                        <form class="app-btn-delete-form" action="{{ route('admin.apps.destroy', $app->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                        </form>
+
+                                </td>
+
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
-
-
     </div>
 </div>
 @endsection

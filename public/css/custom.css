@@ -181,3 +181,27 @@ table.dataTable tbody tr {
     background-color: #2f353a !important;
 }
 
+html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .main, html:not([dir=rtl]) .sidebar-show.sidebar-fixed .app-footer, html:not([dir=rtl]) .sidebar-show.sidebar-fixed .main {
+    margin-left: 260px;
+}
+.sidebar-fixed .sidebar {
+    width: 260px;
+}
+.sidebar .sidebar-nav {
+    width: 260px;
+}
+.sidebar .nav {
+    width: 260px;
+}
+.table-custom-main .card-body {
+    background-color: #fff;
+}
+.table-custom-main .dataTables_scrollBody {
+     background-color: #fff;
+}
+.table-custom-main  table.dataTable tbody tr {
+    background-color: #ffff;
+}
+ .app-body .table-custom-main  .card th, .app-body .table-custom-main  .card td {
+    color: #2f353a !important;
+}
