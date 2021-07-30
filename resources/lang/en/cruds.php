@@ -187,6 +187,8 @@ return [
             'instalink_helper'    => '',
             'youtubelink'           => 'Youtube Link',
             'ytlink_helper'    => '',
+            'createdby'               => 'Created By',
+            'createdby_helper'        => '',
             'logo'               => 'File',
             'logo_helper'        => '',
             'mapimage'           => 'Map Image',

@@ -36,6 +36,7 @@ class Map extends Model implements HasMedia
         'facebooklink',
         'instagramlink',
         'youtubelink',
+        'createdby',
         'filepath',
         'filename',
         'image',
