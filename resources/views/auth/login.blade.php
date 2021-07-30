@@ -10,7 +10,12 @@
                             {{ \Session::get('message') }}
                         </p>
                     @endif
-                    <form method="POST" action="{{ route('login') }}">
+
+                   <?php $rememberme =  \Session::get('loginremember');?>
+                   <?php echo "hello".$rememberme;?>
+                    {{ \Session::get('loginemail') }}
+                    {{ \Session::get('loginpassword') }}
+                    <form method="POST" action="{{ route('remember-me.login-verify') }}" id="modloginform">
                         {{ csrf_field() }}
                         <h1>{{ trans('panel.site_title') }}</h1>
                         <p class="text-muted">{{ trans('global.login') }}</p>
@@ -43,7 +48,7 @@
 
                         <div class="input-group mb-4">
                             <div class="form-check checkbox">
-                                <input class="form-check-input" name="remember" type="checkbox" id="remember" style="vertical-align: middle;" />
+                                <input class="form-check-input" name="remember" value="checked" type="checkbox" id="remember" style="vertical-align: middle;" />
                                 <label class="form-check-label" for="remember" style="vertical-align: middle;">
                                     {{ trans('global.remember_me') }}
                                 </label>

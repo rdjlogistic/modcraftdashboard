@@ -61,6 +61,19 @@
                 @endif
             </div>
 
+            <div class="form-group {{ $errors->has('createdby') ? 'has-error' : '' }}">
+                <label for="createdby">{{ trans('cruds.skin.fields.createdby') }}*</label>
+                <input type="text" id="createdby" name="createdby" class="form-control" value="{{ old('createdby', isset($skin) ? $skin->createdby : '') }}" >
+                @if($errors->has('createdby'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('createdby') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.skin.fields.createdby_helper') }}
+                </p>
+            </div>
+
             <div class="form-group {{ $errors->has('facebooklink') ? 'has-error' : '' }}">
                 <label for="facebooklink">{{ trans('cruds.mod.fields.facebooklink') }}</label>
                 <input title="Please Enter Valid Facebook URL" type="text" id="facebooklink" name="facebooklink" class="form-control" value="{{ old('facebooklink', isset($mod) ? $mod->facebooklink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">

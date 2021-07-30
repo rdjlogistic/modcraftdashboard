@@ -24,11 +24,13 @@ class CreateSkinsTable extends Migration
 
             $table->longText('description')->nullable();
 
-            $table->string('facebooklink')->nullable();;
+            $table->string('facebooklink')->nullable();
 
-            $table->string('instagramlink')->nullable();;
+            $table->string('instagramlink')->nullable();
 
-            $table->string('youtubelink')->nullable();;
+            $table->string('youtubelink')->nullable();
+
+            $table->string('createdby')->nullable();
 
             $table->string('filepath');
 
