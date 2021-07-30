@@ -45,7 +45,8 @@ class SkinsController extends Controller
         if ($image = $request->file('filepath')) {
             $destinationPath = 'uploads/';
             $input['filename'] = $image->getClientOriginalName();
-            $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
+            $getfilename =  str_replace(' ', '_', $image->getClientOriginalName());
+            $profileImage = date('YmdHis') . "_".  $getfilename;
             $image->move($destinationPath, $profileImage);
             $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
@@ -100,7 +101,8 @@ class SkinsController extends Controller
         if ($image = $request->file('filepath')) {
             $destinationPath = 'uploads/';
             $input['filename'] = $image->getClientOriginalName();
-            $profileImage = date('YmdHis') . "_".  $image->getClientOriginalName();
+            $getfilename =  str_replace(' ', '_', $image->getClientOriginalName());
+            $profileImage = date('YmdHis') . "_".  $getfilename;
             $image->move($destinationPath, $profileImage);
             $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
