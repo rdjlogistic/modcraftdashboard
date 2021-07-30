@@ -38,7 +38,7 @@ class CreateSkinsTable extends Migration
 
             $table->string('image');
 
-            $table->json('sliderimages')->nullable();;
+            $table->json('sliderimages')->nullable();
 
             $table->timestamps();
 
