@@ -159,7 +159,7 @@ table.dataTable thead .sorting_desc {
 }
 
 
-.app-body .card , .app-body .card-header{
+ .app-body .card-header{
     background-color: #2f353a;
     color: white;
 }
@@ -176,10 +176,10 @@ table.dataTable thead .sorting_desc {
     color: white;
 }
 
-table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before{
+/* table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before{
 
     border: 1px solid #fff;
-}
+} */
 
 table.dataTable tbody tr {
     background-color: #2f353a !important;
@@ -209,14 +209,74 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
  .app-body .table-custom-main  .card th, .app-body .table-custom-main  .card td {
     color: #2f353a !important;
 }
-.app-body .card, .app-body .card-header {
-    font-size: 22px;
-    line-height: 22px;
-    font-weight: bold;
-}
+
 .app-btn-edit {
     margin-bottom: 10px;
 }
 .btn-group-xs > .btn, .btn-xs {
     padding: 6px 5px;
+}
+
+
+.card-body.card-body-common {
+    background: #fff !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 
+}
+.select2-container .select2-selection--single {
+    height: 45px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5c6873;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    height: 45px;
+}
+.btn-group-xs > .btn, .btn-xs {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ced4da;
+}
+table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+    padding-right: 30px;
+    white-space: nowrap;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 45px;
+}
+table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before {
+    content: ' ';
+    margin-top: -6px;
+    margin-left: -6px;
+    border: 1px solid black;
+    border-radius: 3px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.navbar-brand span.navbar-brand-full {
+    font-weight: bold;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.btn-select {
+    padding: 10px 30px !important;
+    font-weight: 600;
+    font-size: 14px;
 }

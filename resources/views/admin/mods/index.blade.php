@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-md-3">
-            <input type="submit" class="btn btn-danger btn-sm" value="Filter" style="padding:5px 30px;">
+            <input type="submit" class="btn btn-danger btn-sm btn-select" value="Filter" style="padding:5px 30px;">
             </div>
         </div>
     </form>
