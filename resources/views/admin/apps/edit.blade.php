@@ -3,11 +3,11 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.app.title_singular') }}
+    <h2 class="title-main">  {{ trans('global.edit') }} {{ trans('cruds.app.title_singular') }} </div>
     </div>
 
-    <div class="card-body">
-        <form action="{{ route("admin.apps.update", [$app->id]) }}" method="POST" enctype="multipart/form-data">
+    <div class="card-body card-body-common">
+        <form action="{{ route("admin.apps.update", [$app->id]) }}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">

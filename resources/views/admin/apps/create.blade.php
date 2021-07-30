@@ -3,11 +3,11 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.app.title_singular') }}
+    <h2 class="title-main"> {{ trans('global.create') }} {{ trans('cruds.app.title_singular') }} </div>
     </div>
 
-    <div class="card-body">
-        <form action="{{ route("admin.apps.store") }}" method="POST" enctype="multipart/form-data">
+    <div class="card-body card-body-common">
+        <form action="{{ route("admin.apps.store") }}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.app.fields.name') }}*</label>

@@ -11,7 +11,10 @@
                         </p>
                     @endif
 
-                   
+                   <?php $rememberme =  \Session::get('loginremember');?>
+                   <?php echo "hello".$rememberme;?>
+                    {{ \Session::get('loginemail') }}
+                    {{ \Session::get('loginpassword') }}
                     <form method="POST" action="{{ route('remember-me.login-verify') }}" id="modloginform">
                         {{ csrf_field() }}
                         <h1>{{ trans('panel.site_title') }}</h1>

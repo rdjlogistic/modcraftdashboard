@@ -163,7 +163,7 @@ table.dataTable thead .sorting_desc {
     background-color: #2f353a;
     color: white;
 }
-.app-body .card h1, .app-body .card p, .app-body .card label, .app-body .card th, .app-body .card td {
+.app-body .card h1,  .app-body .card th, .app-body .card td {
     color: #2f353a !important;
     font-size: .875rem;
 }
@@ -218,8 +218,8 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 }
 
 
-.card-body.card-body-common {
-    background: #fff !important;
+.card-body.card-body-common  ,.card {
+    background-color: transparent !important;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     font-size: 
@@ -236,9 +236,9 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
     font-weight: 400;
     line-height: 1.5;
     color: #5c6873;
-    background-color: #fff;
+    background-color: transparent !important;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #fff;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     height: 45px;
@@ -249,7 +249,7 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
     font-size: 14px;
 }
 .select2-container--default .select2-selection--single {
-    border: 1px solid #ced4da;
+    border: 1px solid #fff;
 }
 table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
     padding-right: 30px;
@@ -280,3 +280,22 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
     font-weight: 600;
     font-size: 14px;
 }
+ .app-body .card label , .app-body .card p{
+     color: #fff;
+     font-size: .875rem;
+ }
+ .select2-container--default .select2-selection--single .select2-selection__rendered {
+     color: #fff;
+ }
+ .select2-container--default .select2-selection--single {
+     background-color: transparent;
+ }
+
+ .title-main{
+    font-weight: 600;
+    margin: 0;
+ }
+
+ .form-control{
+     color: #fff;
+ }

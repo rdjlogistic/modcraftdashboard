@@ -3,13 +3,14 @@
 
 <div class="card ">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.mod.title_singular') }}
+    <h2 class="title-main">{{ trans('global.create') }} {{ trans('cruds.mod.title_singular') }}</h2>
     </div>
 
     <div class="card-body card-body-common">
         <form action="{{ route("admin.mods.store") }}" method="POST" enctype="multipart/form-data" class="row">
             @csrf
-            <div class="form-group col-lg-6 {{ $errors->has('name') ? 'has-error' : '' }}">
+            <div class="col-lg-6">
+            <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.mod.fields.name') }}*</label>
                 <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($mod) ? $mod->name : '') }}" required>
                 @if($errors->has('name'))
@@ -21,19 +22,7 @@
                     {{ trans('cruds.mod.fields.name_helper') }}
                 </p>
             </div>
-            <div class="form-group col-lg-6 {{ $errors->has('description') ? 'has-error' : '' }}">
-                <label for="description">{{ trans('cruds.mod.fields.description') }}</label>
-                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($mod) ? $mod->description : '') }}</textarea>
-                @if($errors->has('description'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.mod.fields.description_helper') }}
-                </p>
-            </div>
-            <div class="form-group col-lg-6 {{ $errors->has('platform') ? 'has-error' : '' }}">
+            <div class="form-group  {{ $errors->has('platform') ? 'has-error' : '' }}">
                 <label for="platform">{{ trans('cruds.mod.fields.platform') }}</label>
                 <select name="platform" id="platform" class="form-control select2" required>
                         <option value=""  selected>Select Platform</option>
@@ -47,6 +36,21 @@
                     </em>
                 @endif
             </div>
+            </div>
+           
+            <div class="form-group col-lg-6 {{ $errors->has('description') ? 'has-error' : '' }}">
+                <label for="description">{{ trans('cruds.mod.fields.description') }}</label>
+                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($mod) ? $mod->description : '') }}</textarea>
+                @if($errors->has('description'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('description') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.mod.fields.description_helper') }}
+                </p>
+            </div>
+            
             <div class="form-group col-lg-6 {{ $errors->has('app_id') ? 'has-error' : '' }}">
                 <label for="app">{{ trans('cruds.mod.fields.apps') }}</label>
                 <select name="app_id" id="app" class="form-control select2" required>

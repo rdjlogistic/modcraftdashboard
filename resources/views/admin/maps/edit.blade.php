@@ -3,14 +3,15 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.map.title_singular') }}
+    <h2 class="title-main">  {{ trans('global.edit') }} {{ trans('cruds.map.title_singular') }} </h2>
     </div>
 
-    <div class="card-body">
-        <form action="{{ route("admin.maps.update", [$map->id]) }}" method="POST" enctype="multipart/form-data">
+    <div class="card-body card-body-common">
+        <form action="{{ route("admin.maps.update", [$map->id]) }}" method="POST" enctype="multipart/form-data" class="row">
             @csrf
             @method('PUT')
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+            <div class="col-lg-6">
+            <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.map.fields.name') }}*</label>
                 <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($map) ? $map->name : '') }}" required>
                 @if($errors->has('name'))
@@ -20,18 +21,6 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.map.fields.name_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                <label for="description">{{ trans('cruds.map.fields.description') }}</label>
-                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($map) ? $map->description : '') }}</textarea>
-                @if($errors->has('description'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.map.fields.description_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('platform') ? 'has-error' : '' }}">
@@ -50,7 +39,23 @@
                 @endif
             </div>
             
-            <div class="form-group {{ $errors->has('app_id') ? 'has-error' : '' }}">
+            </div>
+
+            <div class="form-group col-lg-6 {{ $errors->has('description') ? 'has-error' : '' }}">
+                <label for="description">{{ trans('cruds.map.fields.description') }}</label>
+                <textarea id="description" name="description" class="form-control ">{{ old('description', isset($map) ? $map->description : '') }}</textarea>
+                @if($errors->has('description'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('description') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.map.fields.description_helper') }}
+                </p>
+            </div>
+            
+            
+            <div class="form-group col-lg-6 {{ $errors->has('app_id') ? 'has-error' : '' }}">
                 <label for="app">{{ trans('cruds.map.fields.apps') }}</label>
                 <select name="app_id" id="app" class="form-control select2" required>
                     @foreach($apps as $id => $app)
@@ -64,7 +69,7 @@
                 @endif
             </div>
 
-            <div class="form-group {{ $errors->has('createdby') ? 'has-error' : '' }}">
+            <div class="form-group col-lg-6 {{ $errors->has('createdby') ? 'has-error' : '' }}">
                 <label for="createdby">{{ trans('cruds.map.fields.createdby') }}*</label>
                 <input type="text" id="createdby" name="createdby" class="form-control" value="{{ old('createdby', isset($map) ? $map->createdby : '') }}" required>
                 @if($errors->has('createdby'))
@@ -77,7 +82,7 @@
                 </p>
             </div>
 
-            <div class="form-group {{ $errors->has('facebooklink') ? 'has-error' : '' }}">
+            <div class="form-group col-lg-6 {{ $errors->has('facebooklink') ? 'has-error' : '' }}">
                 <label for="facebooklink">{{ trans('cruds.map.fields.facebooklink') }}</label>
                 <input title="Please Enter Valid Facebook URL" type="text" id="facebooklink" name="facebooklink" class="form-control" value="{{ old('facebooklink', isset($map) ? $map->facebooklink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
                 @if($errors->has('facebooklink'))
@@ -89,7 +94,7 @@
                     {{ trans('cruds.map.fields.fblink_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('instagramlink') ? 'has-error' : '' }}">
+            <div class="form-group col-lg-6 {{ $errors->has('instagramlink') ? 'has-error' : '' }}">
                 <label for="instagramlink">{{ trans('cruds.map.fields.instalink') }}</label>
                 <input title="Please Enter Valid Instagram URL" type="text" id="instagramlink" name="instagramlink" class="form-control" value="{{ old('instagramlink', isset($map) ? $map->instagramlink : '') }}" pattern="(?:https?:\/\/)?(?:www\.)?(mbasic.instagram|m\.instagram|instagram)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:[\w\-\.]*\/)*([\w\-\.]*)">
                 @if($errors->has('instagramlink'))
@@ -102,7 +107,7 @@
                 </p>
             </div>
 
-            <div class="form-group {{ $errors->has('youtubelink') ? 'has-error' : '' }}">
+            <div class="form-group col-lg-6 {{ $errors->has('youtubelink') ? 'has-error' : '' }}">
                 <label for="youtubelink">{{ trans('cruds.map.fields.youtubelink') }}</label>
                 <input title="Please Enter Valid YouTube URL" type="text" id="youtubelink" name="youtubelink" class="form-control" value="{{ old('youtubelink', isset($map) ? $map->youtubelink : '') }}" pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$">
                 @if($errors->has('youtubelink'))
@@ -114,7 +119,7 @@
                     {{ trans('cruds.map.fields.ytlink_helper') }}
                 </p>
             </div>
-            <div class="form-group ">
+            <div class="form-group col-lg-6 ">
                 <label for="logo">{{ trans('cruds.map.fields.logo') }}</label>
                 <input type="file" name="filepath" class="form-control" placeholder="file">
                 @if($errors->has('logo'))
@@ -127,7 +132,7 @@
                 </p>
                 <p>{{ $map->filename}}</p>
             </div>
-            <div class="form-group ">
+            <div class="form-group col-lg-6 ">
                 <label for="image">{{ trans('cruds.map.fields.mapimage') }}</label>
                 <input type="file" name="image" class="form-control" placeholder="file">
                 @if($errors->has('mapimage'))
@@ -141,7 +146,7 @@
                <img src="{{ $map->image}}" style="height:100px; width:100px;">
                <p>images with 300X300 resolution will be more suitable</p>
             </div>
-            <div class="form-group ">
+            <div class="form-group col-lg-6 ">
                 <label for="sliderimages">{{ trans('cruds.map.fields.mapsliderimages') }}</label>
                 <input type="file" name="sliderimages[]" class="form-control" placeholder="file" multiple>
                 @if($errors->has('sliderimages'))
