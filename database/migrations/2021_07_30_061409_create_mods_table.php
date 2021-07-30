@@ -30,6 +30,8 @@ class CreateModsTable extends Migration
 
             $table->string('youtubelink')->nullable();
 
+            $table->string('createdby')->nullable();
+
             $table->string('filepath');
 
             $table->string('filename');
