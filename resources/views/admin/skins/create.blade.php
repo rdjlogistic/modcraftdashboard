@@ -156,7 +156,7 @@
                 </p>
                 <p>images with 300X300 resolution will be more suitable</p>
             </div>
-            <div>
+            <div class="col-lg-12">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
         </form>
