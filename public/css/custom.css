@@ -318,3 +318,11 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: #fff transparent transparent transparent;
 }
+
+.app-header .navbar-brand {
+    width: 260px;
+}
+.select2-container--default .select2-selection--multiple {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
