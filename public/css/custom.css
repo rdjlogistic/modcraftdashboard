@@ -164,7 +164,7 @@ table.dataTable thead .sorting_desc {
     color: white;
 }
 .app-body .card h1,  .app-body .card th, .app-body .card td {
-    color: #2f353a !important;
+    color: #fff !important;
     font-size: .875rem;
 }
 
@@ -197,15 +197,15 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 .sidebar .nav {
     width: 260px;
 }
-.table-custom-main .card-body {
+/* .table-custom-main .card-body {
     background-color: #fff;
 }
 .table-custom-main .dataTables_scrollBody {
      background-color: #fff;
-}
-.table-custom-main table.dataTable tbody tr {
+} */
+/* .table-custom-main table.dataTable tbody tr {
     background-color: #ffff !important;
-}
+} */
  .app-body .table-custom-main  .card th, .app-body .table-custom-main  .card td {
     color: #2f353a !important;
 }
@@ -263,7 +263,7 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
     content: ' ';
     margin-top: -6px;
     margin-left: -6px;
-    border: 1px solid black;
+    border: 1px solid #fff;
     border-radius: 3px;
     top: 50%;
     transform: translate(0, -50%);
