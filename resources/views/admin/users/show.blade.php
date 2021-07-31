@@ -3,10 +3,10 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.user.title') }}
+    <h2 class="title-main">{{ trans('global.show') }} {{ trans('cruds.user.title') }}</h2>
     </div>
 
-    <div class="card-body">
+    <div class="card-body card-body-common">
         <div class="mb-2">
             <table class="table table-bordered table-striped">
                 <tbody>
