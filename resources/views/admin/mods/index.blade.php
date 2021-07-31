@@ -46,7 +46,7 @@
                             <th>
                                 {{ trans('cruds.mod.fields.name') }}
                             </th>
-                            <th>
+                            <th width="30%">
                                 {{ trans('cruds.mod.fields.description') }}
                             </th>
                             <th>

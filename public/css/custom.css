@@ -214,7 +214,7 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
     margin-bottom: 10px;
 }
 .btn-group-xs > .btn, .btn-xs {
-    padding: 6px 5px;
+    padding: 5px 5px;
 }
 
 
@@ -325,4 +325,12 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
 .select2-container--default .select2-selection--multiple {
     background-color: transparent;
     border: 1px solid #fff;
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>th, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>td, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>th, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>td {
+   
+    text-align: center;
+}
+table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+   
+    text-align: center;
 }

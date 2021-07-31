@@ -46,7 +46,7 @@
                             <th>
                                 {{ trans('cruds.skin.fields.name') }}
                             </th>
-                            <th>
+                            <th  width="30%">
                                 {{ trans('cruds.skin.fields.description') }}
                             </th>
                             <th>
