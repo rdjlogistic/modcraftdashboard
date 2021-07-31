@@ -44,49 +44,49 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function index(Request $request){
-        $info = [];
-        return view('auth/login', $info);
-    }
+    // public function index(Request $request){
+    //     $info = [];
+    //     return view('auth/login', $info);
+    // }
 
-    public function verify(Request $request){
-        $credential = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+    // public function verify(Request $request){
+    //     $credential = [
+    //         'email' => $request->email,
+    //         'password' => $request->password,
+    //     ];
 
-       $remember_me  = ( !empty( $request->remember ) )? TRUE : FALSE;
+    //    $remember_me  = ( !empty( $request->remember ) )? TRUE : FALSE;
        
 
       
 
-        if(Auth::attempt($credential)){
-            $user = User::where(["email" => $credential['email']])->first();
+    //     if(Auth::attempt($credential)){
+    //         $user = User::where(["email" => $credential['email']])->first();
             
-            Auth::login($user, $remember_me);
-            // Cookie::queue("member_login", $request->email, time()+ (10 * 365 * 24 * 60 * 60));
+    //         Auth::login($user, $remember_me);
+    //         // Cookie::queue("member_login", $request->email, time()+ (10 * 365 * 24 * 60 * 60));
             
-            // $cookie = \Cookie::make('member_login', $request->email, time()+ (10 * 365 * 24 * 60 * 60));
-            // $member_login = cookie('member_login', $request->email,  time()+ (10 * 365 * 24 * 60 * 60));
-            // Cookie::queue('member_login', $request->emai, time()+ (10 * 365 * 24 * 60 * 60));
+    //         // $cookie = \Cookie::make('member_login', $request->email, time()+ (10 * 365 * 24 * 60 * 60));
+    //         // $member_login = cookie('member_login', $request->email,  time()+ (10 * 365 * 24 * 60 * 60));
+    //         // Cookie::queue('member_login', $request->emai, time()+ (10 * 365 * 24 * 60 * 60));
             
-            // $cookieJar->queue(cookie('member_login', $request->emai, 45000));
+    //         // $cookieJar->queue(cookie('member_login', $request->emai, 45000));
 
-            Session::put('loginemail',$request->email);
-            Session::put('loginpassword',$request->password);
-            if( !empty( $request->remember ) ) {
-                Session::put('loginremember',$remember_me);
-            } else {
-                Session::put('loginremember',$remember_me);
-            }
+    //         Session::put('loginemail',$request->email);
+    //         Session::put('loginpassword',$request->password);
+    //         if( !empty( $request->remember ) ) {
+    //             Session::put('loginremember',$remember_me);
+    //         } else {
+    //             Session::put('loginremember',$remember_me);
+    //         }
             
             
-            return redirect(route('home'));
-        }
-    }
+    //         return redirect(route('home'));
+    //     }
+    // }
 
-    public function logout(Request $request){
-        // Auth::logout();
-        return view('auth/login');
-    }
+    // public function logout(Request $request){
+    //     // Auth::logout();
+    //     return view('auth/login');
+    // }
 }

@@ -1,12 +1,12 @@
 <?php
-// Route::get('/', 'HomePageController@index');
+Route::get('/', 'HomePageController@index');
 // Route::get('/', 'LoginController@index');
 // Route::post('/login/verify', 'LoginController@verify');
 // Route::get('/logout', 'LoginController@logout');
 
-Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'index']);
-Route::post('/login/verify', [App\Http\Controllers\Auth\LoginController::class, 'verify'])->name('remember-me.login-verify');
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+// Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'index']);
+// Route::post('/login/verify', [App\Http\Controllers\Auth\LoginController::class, 'verify'])->name('remember-me.login-verify');
+// Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 // Route::get('/dashboard', 'HomePageController@index')->name('dashboard');
 

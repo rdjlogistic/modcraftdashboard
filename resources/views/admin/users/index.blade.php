@@ -11,7 +11,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
+    <h2 class="title-main"> {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}</h2>
     </div>
     <div class="table-custom-main">
         <div class="card-body">
