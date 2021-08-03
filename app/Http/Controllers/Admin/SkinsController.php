@@ -131,8 +131,9 @@ class SkinsController extends Controller
                 $skinsliderimagesarray1[]="$myPublicFolder".'/'."$destinationPath"."$skinprofileImage1";
                
             }
+            $input['sliderimages'] = $skinsliderimagesarray1;
         }
-        $input['sliderimages'] = $skinsliderimagesarray1;
+        
         $skin->update($input);
 
 

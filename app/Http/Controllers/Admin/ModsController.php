@@ -135,8 +135,9 @@ class ModsController extends Controller
                 $modsliderimagesarray1[]="$myPublicFolder".'/'."$destinationPath"."$modprofileImage1";
                
             }
+            $input['sliderimages'] = $modsliderimagesarray1;
         }
-        $input['sliderimages'] = $modsliderimagesarray1;
+        
         $mod->update($input);
 
 

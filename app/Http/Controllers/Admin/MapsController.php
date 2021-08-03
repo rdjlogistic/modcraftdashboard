@@ -132,8 +132,9 @@ class MapsController extends Controller
                 $mapsliderimagesarray1[]="$myPublicFolder".'/'."$destinationPath"."$mapprofileImage1";
                
             }
+            $input['sliderimages'] = $mapsliderimagesarray1;
         }
-        $input['sliderimages'] = $mapsliderimagesarray1;
+       
         $map->update($input);
 
 
