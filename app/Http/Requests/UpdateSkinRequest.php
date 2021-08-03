@@ -22,7 +22,7 @@ class UpdateSkinRequest extends FormRequest
                 'required',
             ],
             'modimage'   => [
-                'mimes:jpeg,png,svg |max:4096',
+                'mimes:jpeg,png,svg |max:50000',
               
             ],
         ];
