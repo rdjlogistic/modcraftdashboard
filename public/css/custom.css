@@ -221,9 +221,9 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 .card-body.card-body-common  ,.card {
     background-color: transparent !important;
 }
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    font-size: 
-}
+/* .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size
+} */
 .select2-container .select2-selection--single {
     height: 45px;
 }
