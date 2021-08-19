@@ -17,17 +17,30 @@ class StoreModRequest extends FormRequest
 
     public function rules()
     {
-        return [
-            'name'         => [
-                'required',
-            ],
-            'filepath'   => [
-                'required',
-            ],
-            'image'   => [
-                'mimes:jpeg,png,svg |max:50000',
-              
-            ],
+        $result = [
+            'name' => 'required',
+            'app_id' => 'required',
+            'platform' => 'required',
+            'createdby' => 'required',
+            'filepath' => 'required',
+            'image' => 'mimes:jpeg,png,svg'
         ];
+
+        return $result;
+        // return [
+        //     'name' => [
+        //         'required',
+        //     ],
+        //     'platform' => [
+        //         'required'
+        //     ],
+        //     'filepath'   => [
+        //         'required',
+        //     ],
+        //     'image'   => [
+        //         'mimes:jpeg,png,svg|max:5120',
+
+        //     ],
+        // ];
     }
 }

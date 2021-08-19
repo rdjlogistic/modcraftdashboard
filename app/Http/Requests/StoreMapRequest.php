@@ -24,10 +24,10 @@ class StoreMapRequest extends FormRequest
                 'required',
             ],
             'image'   => [
-                'mimes:jpeg,png,svg |max:50000',
-              
+                'mimes:jpeg,png,svg',
+
             ],
-            
+
         ];
     }
 }

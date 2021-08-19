@@ -27,23 +27,22 @@ class ModsController extends Controller
 
         $apps = App::all()->pluck('name', 'id');
 
-        return view('admin.mods.index', compact('mods' ,'apps'));
+        return view('admin.mods.index', compact('mods', 'apps'));
     }
 
     public function create()
     {
         $apps = App::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.mods.create' , compact('apps'));
+        return view('admin.mods.create', compact('apps'));
     }
 
-    
+
     public function store(StoreModRequest $request)
     {
-
         $input = $request->all();
         $modsliderimagesarray=array();
-  
+
         if ($image = $request->file('filepath')) {
             $destinationPath = 'uploads/';
             $input['filename'] = $image->getClientOriginalName();
@@ -52,30 +51,29 @@ class ModsController extends Controller
             $image->move($destinationPath, $profileImage);
             $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
-        }else{
+        } else {
             unset($input['filepath']);
         }
-          
+
         if ($modimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $modprofileImage = date('YmdHis') . "_".  $modimage->getClientOriginalName();
             $modimage->move($destinationPath, $modprofileImage);
             $myPublicFolder = URL::to('/');
             $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$modprofileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
 
 
-        
-        if($modsliderimages=$request->file('sliderimages')){
-            foreach($modsliderimages as $modsliderimage){
+
+        if ($modsliderimages=$request->file('sliderimages')) {
+            foreach ($modsliderimages as $modsliderimage) {
                 $destinationPath = 'uploads/';
                 $modprofileImage1 = date('YmdHis') . "_".  $modsliderimage->getClientOriginalName();
                 $modsliderimage->move($destinationPath, $modprofileImage1);
                 $myPublicFolder = URL::to('/');
                 $modsliderimagesarray[]="$myPublicFolder".'/'."$destinationPath"."$modprofileImage1";
-                
             }
         }
         $input['sliderimages'] = $modsliderimagesarray;
@@ -83,7 +81,7 @@ class ModsController extends Controller
         $mod = Mod::create($request->all());
         $mod->update($input);
 
-        
+
 
         return redirect()->route('admin.mods.index');
     }
@@ -101,7 +99,7 @@ class ModsController extends Controller
         $modsliderimagesarray1=array();
 
         $input = $request->all();
-  
+
         if ($image = $request->file('filepath')) {
             $destinationPath = 'uploads/';
             $input['filename'] = $image->getClientOriginalName();
@@ -110,34 +108,32 @@ class ModsController extends Controller
             $image->move($destinationPath, $profileImage);
             $myPublicFolder = URL::to('/');
             $input['filepath'] = "$myPublicFolder".'/'."$destinationPath"."$profileImage";
-            
-        }else{
+        } else {
             unset($input['filepath']);
         }
-        
+
         if ($modimage = $request->file('image')) {
             $destinationPath = 'uploads/';
             $modprofileImage = date('YmdHis') . "_".  $modimage->getClientOriginalName();
             $modimage->move($destinationPath, $modprofileImage);
             $myPublicFolder = URL::to('/');
             $input['image'] = "$myPublicFolder".'/'."$destinationPath"."$modprofileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
 
-        
-        if($modsliderimages=$request->file('sliderimages')){
-            foreach($modsliderimages as $modsliderimage){
+
+        if ($modsliderimages=$request->file('sliderimages')) {
+            foreach ($modsliderimages as $modsliderimage) {
                 $destinationPath = 'uploads/';
                 $modprofileImage1 = date('YmdHis') . "_".  $modsliderimage->getClientOriginalName();
                 $modsliderimage->move($destinationPath, $modprofileImage1);
                 $myPublicFolder = URL::to('/');
                 $modsliderimagesarray1[]="$myPublicFolder".'/'."$destinationPath"."$modprofileImage1";
-               
             }
             $input['sliderimages'] = $modsliderimagesarray1;
         }
-        
+
         $mod->update($input);
 
 
@@ -155,7 +151,6 @@ class ModsController extends Controller
 
     public function destroy(Mod $mod)
     {
-
         $mod->delete();
 
         return back();
@@ -167,5 +162,4 @@ class ModsController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-
 }

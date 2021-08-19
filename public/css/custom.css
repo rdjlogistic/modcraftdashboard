@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif  !important;
+    font-family: "Montserrat", sans-serif !important;
 }
 
 .ck-editor__editable,
@@ -15,11 +15,11 @@ textarea {
 .dataTables_filter,
 .dt-buttons {
     margin-bottom: 0.333em;
-    margin-top: .2rem;
+    margin-top: 0.2rem;
 }
 
 .dataTables_filter {
-    margin-right: .2rem;
+    margin-right: 0.2rem;
 }
 
 .dt-buttons .btn {
@@ -76,7 +76,7 @@ table.dataTable thead .sorting_desc {
 
 .btn-default.focus,
 .btn-default:focus {
-    box-shadow: 0 0 0 .2rem rgba(209, 213, 215, .5);
+    box-shadow: 0 0 0 0.2rem rgba(209, 213, 215, 0.5);
 }
 
 .btn-default:hover {
@@ -97,12 +97,12 @@ table.dataTable thead .sorting_desc {
     font-weight: bold;
 }
 .searchable-fields {
-    padding-left:5px;
+    padding-left: 5px;
 }
 .searchable-link {
-    padding:0 5px 0 5px;
+    padding: 0 5px 0 5px;
 }
-.searchable-link:hover   {
+.searchable-link:hover {
     cursor: pointer;
     background: #eaeaea;
 }
@@ -111,38 +111,38 @@ table.dataTable thead .sorting_desc {
     padding-right: 0px;
 }
 
-
-#modcraft .dataTables_length , #modcraft .dt-buttons{
- display: none !important;
+#modcraft .dataTables_length,
+#modcraft .dt-buttons {
+    display: none !important;
 }
 
-.app-body ,.login-page{
+.app-body,
+.login-page {
     background-color: #2f353a;
 }
 
-.app-body .content{
+.app-body .content {
     color: white;
 }
 
-.btn-edit{
+.btn-edit {
     width: 100%;
     margin-right: 10px;
 }
 
-.btn-delete-form{
+.btn-delete-form {
     width: 100%;
-
 }
 .btn-delete-form .btn-danger {
     width: 100%;
 }
 
-.app-btn-edit{
+.app-btn-edit {
     width: 100%;
     margin-right: 10px;
 }
 
-.app-btn-delete-form{
+.app-btn-delete-form {
     width: 100%;
 }
 
@@ -150,29 +150,32 @@ table.dataTable thead .sorting_desc {
     width: 100%;
 }
 
-.login-page .card{
+.login-page .card {
     background-color: #2f353a;
 }
 
-.login-page .card h1, .login-page .card p ,.login-page .card label{
+.login-page .card h1,
+.login-page .card p,
+.login-page .card label {
     color: white !important;
 }
 
-
- .app-body .card-header{
+.app-body .card-header {
     background-color: #2f353a;
     color: white;
 }
-.app-body .card h1,  .app-body .card th, .app-body .card td {
+.app-body .card h1,
+.app-body .card th,
+.app-body .card td {
     color: #fff !important;
-    font-size: .875rem;
+    font-size: 0.875rem;
 }
 
-.app-header{
+.app-header {
     background-color: #2f353a;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: white;
 }
 
@@ -185,7 +188,10 @@ table.dataTable tbody tr {
     background-color: #2f353a !important;
 }
 
-html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .main, html:not([dir=rtl]) .sidebar-show.sidebar-fixed .app-footer, html:not([dir=rtl]) .sidebar-show.sidebar-fixed .main {
+html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer,
+html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main,
+html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer,
+html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main {
     margin-left: 260px;
 }
 .sidebar-fixed .sidebar {
@@ -206,19 +212,21 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 /* .table-custom-main table.dataTable tbody tr {
     background-color: #ffff !important;
 } */
- .app-body .table-custom-main  .card th, .app-body .table-custom-main  .card td {
+.app-body .table-custom-main .card th,
+.app-body .table-custom-main .card td {
     color: #2f353a !important;
 }
 
 .app-btn-edit {
     margin-bottom: 10px;
 }
-.btn-group-xs > .btn, .btn-xs {
+.btn-group-xs > .btn,
+.btn-xs {
     padding: 5px 5px;
 }
 
-
-.card-body.card-body-common  ,.card {
+.card-body.card-body-common,
+.card {
     background-color: transparent !important;
 }
 /* .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -230,20 +238,21 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 .form-control {
     display: block;
     width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: .875rem;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
     color: #5c6873;
     background-color: transparent !important;
     background-clip: padding-box;
     border: 1px solid #fff;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     height: 45px;
 }
-.btn-group-xs > .btn, .btn-xs {
+.btn-group-xs > .btn,
+.btn-xs {
     margin-bottom: 6px;
     font-weight: 600;
     font-size: 14px;
@@ -251,16 +260,24 @@ html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed .app-footer, html:not([dir=rt
 .select2-container--default .select2-selection--single {
     border: 1px solid #fff;
 }
-table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
     padding-right: 30px;
     white-space: nowrap;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 45px;
 }
-table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before {
-    content: ' ';
+table.dataTable tbody td.select-checkbox:before,
+table.dataTable tbody th.select-checkbox:before {
+    content: " ";
     margin-top: -6px;
     margin-left: -6px;
     border: 1px solid #fff;
@@ -271,7 +288,9 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
 .navbar-brand span.navbar-brand-full {
     font-weight: bold;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 50%;
     transform: translate(0, -50%);
 }
@@ -280,42 +299,50 @@ table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select
     font-weight: 600;
     font-size: 14px;
 }
- .app-body .card label , .app-body .card p{
-     color: #fff;
-     font-size: .875rem;
- }
- .select2-container--default .select2-selection--single .select2-selection__rendered {
-     color: #fff;
- }
- .select2-container--default .select2-selection--single {
-     background-color: transparent;
- }
+.app-body .card label,
+.app-body .card p {
+    color: #fff;
+    font-size: 0.875rem;
+}
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
+    color: #fff;
+}
+.select2-container--default .select2-selection--single {
+    background-color: transparent;
+}
 
- .title-main{
+.title-main {
     font-weight: 600;
     margin: 0;
- }
+}
 
- .form-control{
-     color: #fff;
- }
+.form-control {
+    color: #fff;
+}
 
- html:not([dir=rtl]) .sidebar {
+html:not([dir="rtl"]) .sidebar {
     margin-left: -260px;
 }
 .navbar-toggler {
     background-color: #63c2de;
 }
-table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
+table.dataTable tr.selected td.select-checkbox:after,
+table.dataTable tr.selected th.select-checkbox:after {
     top: 50%;
     transform: translate(0, -50%);
 }
-.select2-container--default.select2-container--focus .select2-selection--multiple {
+.select2-container--default.select2-container--focus
+    .select2-selection--multiple {
     border: solid #fff 1px;
     outline: 0;
     background: transparent;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow
+    b {
     border-color: #fff transparent transparent transparent;
 }
 
@@ -326,11 +353,45 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
     background-color: transparent;
     border: 1px solid #fff;
 }
-.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>th, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>td, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>th, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>td {
-   
+.dataTables_wrapper
+    .dataTables_scroll
+    div.dataTables_scrollBody
+    > table
+    > thead
+    > tr
+    > th,
+.dataTables_wrapper
+    .dataTables_scroll
+    div.dataTables_scrollBody
+    > table
+    > thead
+    > tr
+    > td,
+.dataTables_wrapper
+    .dataTables_scroll
+    div.dataTables_scrollBody
+    > table
+    > tbody
+    > tr
+    > th,
+.dataTables_wrapper
+    .dataTables_scroll
+    div.dataTables_scrollBody
+    > table
+    > tbody
+    > tr
+    > td {
     text-align: center;
 }
-table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
-   
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
     text-align: center;
+}
+
+.error {
+    color: red !important;
 }

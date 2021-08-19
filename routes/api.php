@@ -9,7 +9,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1\Admin', 'middleware' => [
 
     // Users
     Route::apiResource('users', 'UsersApiController');
-    
+
     // Users
     // Route::get('mods/{app_id}', 'ModsApiController@getModsByApp');
 
@@ -18,7 +18,4 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1\Admin', 'middleware' => [
     Route::get('maps', 'MapsApiController@getMapsByApp');
 
     Route::get('skins', 'SkinsApiController@getSkinsByApp');
-
-
 });
-

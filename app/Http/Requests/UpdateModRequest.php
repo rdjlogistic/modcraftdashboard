@@ -11,7 +11,6 @@ class UpdateModRequest extends FormRequest
 {
     public function authorize()
     {
-
         return true;
     }
 
@@ -22,10 +21,10 @@ class UpdateModRequest extends FormRequest
                 'required',
             ],
             'image'   => [
-                'mimes:jpeg,png,svg |max:50000',
-              
+                'mimes:jpeg,png,svg',
+
             ],
-           
+
         ];
     }
 }
