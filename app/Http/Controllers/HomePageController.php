@@ -8,11 +8,11 @@ use App\Category;
 use App\Price;
 use Mail;
 use Hash;
-
 use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\User;
+use App\Mail\ForgotPassword;
 
 class HomePageController extends Controller
 {
@@ -59,11 +59,12 @@ class HomePageController extends Controller
               'token' => $token,
               'created_at' => Carbon::now()
             ]);
-
-            Mail::send('email.reset-password', ['token' => $token], function ($message) use ($request) {
-                $message->to($request->email)->subject('Reset password link');
-                $message->from(config('mail.from.address'), 'Reset Password');
-            });
+            Mail::to($request->email)->send(new ForgotPassword($token));
+            // Mail::send('email.reset-password', ['token' => $token], function ($message) use ($request) {
+            //     dd($message);
+            //     $message->to($request->email)->subject('Reset password link');
+            //     $message->from(config('mail.from.address'), 'Reset Password');
+            // });
             return back()->with('message', 'We have e-mailed your password reset link!');
         } catch (\Exception $e) {
             dd($e);
