@@ -2,10 +2,15 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
+        @if(\Session::has('message'))
+        <p class="alert alert-info" id="message">
+            {{ \Session::get('message') }}
+        </p>
+        @endif
         <div class="card-group">
             <div class="card p-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('forgotPassword') }}">
                         {{ csrf_field() }}
                         <h1>
                             <div class="login-logo">
@@ -18,11 +23,12 @@
                         <div>
                             {{ csrf_field() }}
                             <div class="form-group has-feedback">
-                                <input type="email" name="email" class="form-control" required="autofocus" placeholder="{{ trans('global.login_email') }}">
+                                <input type="email" name="email" class="form-control" required="autofocus"
+                                    placeholder="{{ trans('global.login_email') }}">
                                 @if($errors->has('email'))
-                                    <em class="invalid-feedback">
-                                        {{ $errors->first('email') }}
-                                    </em>
+                                <em class="invalid-feedback">
+                                    {{ $errors->first('email') }}
+                                </em>
                                 @endif
                             </div>
                         </div>
@@ -39,4 +45,5 @@
         </div>
     </div>
 </div>
+
 @endsection

@@ -16,6 +16,10 @@ Route::get('mods/{mod}', 'HomePageController@mod')->name('mod');
 Route::get('maps/{map}', 'HomePageController@map')->name('map');
 Route::get('skins/{skin}', 'HomePageController@skin')->name('skin');
 
+Route::post('forgot-password', 'HomePageController@forgotPassword')->name('forgotPassword');
+Route::get('reset-password/{token}', 'HomePageController@showResetPasswordForm')->name('reset.password.get');
+Route::post('reset-password', 'HomePageController@submitResetPasswordForm')->name('reset.password.post');
+
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
 
@@ -51,15 +55,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('skins/destroy', 'SkinsController@massDestroy')->name('skins.massDestroy');
     Route::post('skins/media', 'SkinsController@storeMedia')->name('skins.storeMedia');
     Route::resource('skins', 'SkinsController');
-
-  
-    
 });
 
 Route::group(['prefix' => 'v1/api/', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-
     Route::get('mods', 'ModsController@getModsByApp');
-
 });
 
 Auth::routes();
@@ -73,6 +72,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-

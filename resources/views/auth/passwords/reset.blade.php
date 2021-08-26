@@ -2,10 +2,15 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
+        @if(\Session::has('error'))
+        <p class="alert alert-danger" id="message">
+            {{ \Session::get('error') }}
+        </p>
+        @endif
         <div class="card-group">
             <div class="card p-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.request') }}">
+                    <form method="POST" action="{{ route('reset.password.post') }}">
                         {{ csrf_field() }}
                         <h1>
                             <div class="login-logo">
@@ -18,27 +23,30 @@
                         <div>
                             <input name="token" value="{{ $token }}" type="hidden">
                             <div class="form-group has-feedback">
-                                <input type="email" name="email" class="form-control" required placeholder="{{ trans('global.login_email') }}">
+                                <input type="email" name="email" class="form-control" required
+                                    placeholder="{{ trans('global.login_email') }}">
                                 @if($errors->has('email'))
-                                    <em class="invalid-feedback">
-                                        {{ $errors->first('email') }}
-                                    </em>
+                                <div class="error">
+                                    {{ $errors->first('email') }}
+                                </div>
                                 @endif
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="password" name="password" class="form-control" required placeholder="{{ trans('global.login_password') }}">
+                                <input type="password" name="password" class="form-control" required
+                                    placeholder="{{ trans('global.login_password') }}">
                                 @if($errors->has('password'))
-                                    <em class="invalid-feedback">
-                                        {{ $errors->first('password') }}
-                                    </em>
+                                <em class="invalid-feedback">
+                                    {{ $errors->first('password') }}
+                                </em>
                                 @endif
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="password" name="password_confirmation" class="form-control" required placeholder="{{ trans('global.login_password_confirmation') }}">
+                                <input type="password" name="password_confirmation" class="form-control" required
+                                    placeholder="{{ trans('global.login_password_confirmation') }}">
                                 @if($errors->has('password_confirmation'))
-                                    <em class="invalid-feedback">
-                                        {{ $errors->first('password_confirmation') }}
-                                    </em>
+                                <em class="invalid-feedback">
+                                    {{ $errors->first('password_confirmation') }}
+                                </em>
                                 @endif
                             </div>
                         </div>
