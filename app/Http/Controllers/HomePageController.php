@@ -53,21 +53,21 @@ class HomePageController extends Controller
     public function forgotPassword(Request $request)
     {
         $token = Str::random(64);
-
-        DB::table('password_resets')->insert([
+        try {
+            DB::table('password_resets')->insert([
               'email' => $request->email,
               'token' => $token,
               'created_at' => Carbon::now()
             ]);
 
-
-        Mail::send('email.reset-password', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email)->subject('Reset password link');
-            $message->from('divyesh@logisticinfotech.co.in', 'Reset Password');
-        });
-        return back()->with('message', 'We have e-mailed your password reset link!');
-
-        //echo "Basic Email Sent. Check your inbox.";
+            Mail::send('email.reset-password', ['token' => $token], function ($message) use ($request) {
+                $message->to($request->email)->subject('Reset password link');
+                $message->from(config('mail.from.address'), 'Reset Password');
+            });
+            return back()->with('message', 'We have e-mailed your password reset link!');
+        } catch (\Exception $e) {
+            dd($e);
+        }
     }
     public function showResetPasswordForm($token)
     {
