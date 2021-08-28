@@ -29,6 +29,6 @@ class ForgotPassword extends Mailable
     public function build()
     {
         $data['token'] = $this->token;
-        return $this->from('modcraft.studio@outlook.com')->subject('Reset Password')->view('email.reset-password')->with($data);
+        return $this->from(config('mail.from.address'))->subject('Reset Password')->view('email.reset-password')->with($data);
     }
 }

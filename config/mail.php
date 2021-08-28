@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'modcraft.studio@outlook.com'),
+        'address' => env('MAIL_FROM_ADDRESS'),
         'name' => env('MAIL_FROM_NAME', 'ModCraft'),
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME', 'modcraft.studio@outlook.com'),
+    'username' => env('MAIL_USERNAME', 'divyesh.paun005@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD', 'Developer2021'),
+    'password' => env('MAIL_PASSWORD', '8530367456'),
 
     /*
     |--------------------------------------------------------------------------
