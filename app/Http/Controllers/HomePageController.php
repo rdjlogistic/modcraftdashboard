@@ -54,18 +54,18 @@ class HomePageController extends Controller
     {
         $token = Str::random(64);
         try {
-            DB::table('password_resets')->insert([
-              'email' => $request->email,
-              'token' => $token,
-              'created_at' => Carbon::now()
-            ]);
-            Mail::to($request->email)->send(new ForgotPassword($token));
-            // Mail::send('email.reset-password', ['token' => $token], function ($message) use ($request) {
-            //     dd($message);
-            //     $message->to($request->email)->subject('Reset password link');
-            //     $message->from(config('mail.from.address'), 'Reset Password');
-            // });
-            return back()->with('message', 'We have e-mailed your password reset link!');
+            $checkExists = User::where('email', $request->email)->first();
+            if ($checkExists) {
+                DB::table('password_resets')->insert([
+                    'email' => $request->email,
+                    'token' => $token,
+                    'created_at' => Carbon::now()
+                ]);
+                Mail::to($request->email)->send(new ForgotPassword($token));
+                return back()->with('message', 'We have e-mailed your password reset link!');
+            } else {
+                return back()->with('message', 'Email not available');
+            }
         } catch (\Exception $e) {
             dd($e);
         }
