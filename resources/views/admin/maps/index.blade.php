@@ -70,7 +70,7 @@
                         @if(count($maps) > 0)
                         @foreach($maps as $key => $map)
 
-                        @if($map->app->id == $appid)
+                        @if($map->app_id == $appid)
                         <tr data-entry-id="{{ $map->id }}">
                             <td>
 

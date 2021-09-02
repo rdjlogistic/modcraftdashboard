@@ -70,7 +70,7 @@
                         @if(count($mods) > 0)
                         @foreach($mods as $key => $mod)
 
-                        @if($mod->app->id == $appid)
+                        @if($mod->app_id == $appid)
                         <tr data-entry-id="{{ $mod->id }}">
                             <td>
 
