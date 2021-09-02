@@ -67,9 +67,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($mods)
+                        @if(count($mods) > 0)
                         @foreach($mods as $key => $mod)
-                        <?php if($mod->app->id == $appid){?>
+
+                        @if($mod->app->id == $appid)
                         <tr data-entry-id="{{ $mod->id }}">
                             <td>
 
@@ -106,8 +107,9 @@
                             </td>
 
                         </tr>
-                        <?php } else {
-                            if($appid == ''){ ?>
+                        @else
+
+                        @if($appid == '')
 
                         <tr data-entry-id="{{ $mod->id }}">
                             <td>
@@ -146,7 +148,9 @@
                             </td>
 
                         </tr>
-                        <?php } }?>
+                        @endif
+
+                        @endif
                         @endforeach
                         @endif
                     </tbody>

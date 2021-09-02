@@ -67,55 +67,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($maps)
+                        @if(count($maps) > 0)
                         @foreach($maps as $key => $map)
-                        <?php if($map->app->id == $appid){?>
-                        <tr data-entry-id="{{ $map->id }}">
-                            <td>
 
-                            </td>
-                            <td>
-                                {{ $map->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $map->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ Str::limit($map->description, 150) }}
-                            </td>
-                            <td>
-                                {{ $map->platform ?? '' }}
-                            </td>
-                            <td>
-                                {{ $map->app->name ?? '' }}
-                            </td>
-                            <!-- <td>{{ $map->filename}}</td> -->
-                            <td><img src="{{ $map->image}}" style="height:50px; width:70px;"></td>
-                            <!-- <td>
-                                    @if($map->logo)
-                                        <a href="{{ $map->logo->getUrl() }}" target="_blank">
-                                            <img src="{{ $map->logo->getUrl('thumb') }}" width="50px" height="50px">
-                                        </a>
-                                    @endif
-                                </td> -->
-                            <td>
-                                <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.maps.edit', $map->id) }}">
-                                    {{ trans('global.edit') }}
-                                </a>
-
-                                <form class="btn-delete-form" action="{{ route('admin.maps.destroy', $map->id) }}"
-                                    method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
-                                    style="display: inline-block;">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <input type="submit" class="btn btn-xs btn-danger"
-                                        value="{{ trans('global.delete') }}">
-                                </form>
-                            </td>
-
-                        </tr>
-                        <?php } else{
-                            if($appid == ''){  ?>
+                        @if($map->app->id == $appid)
                         <tr data-entry-id="{{ $map->id }}">
                             <td>
 
@@ -153,7 +108,50 @@
                             </td>
 
                         </tr>
-                        <?php } }?>
+                        @else
+
+                        @if($appid == '')
+
+                        <tr data-entry-id="{{ $map->id }}">
+                            <td>
+
+                            </td>
+                            <td>
+                                {{ $map->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ $map->name ?? '' }}
+                            </td>
+                            <td>
+                                {{ Str::limit($map->description, 150) }}
+                            </td>
+                            <td>
+                                {{ $map->platform ?? '' }}
+                            </td>
+                            <td>
+                                {{ $map->app->name ?? '' }}
+                            </td>
+                            <td><img src="{{ $map->image}}" style="height:50px; width:70px;"></td>
+
+                            <td>
+                                <a class="btn btn-xs btn-info btn-edit" href="{{ route('admin.maps.edit', $map->id) }}">
+                                    {{ trans('global.edit') }}
+                                </a>
+
+                                <form class="btn-delete-form" action="{{ route('admin.maps.destroy', $map->id) }}"
+                                    method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
+                                    style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger"
+                                        value="{{ trans('global.delete') }}">
+                                </form>
+                            </td>
+
+                        </tr>
+                        @endif
+
+                        @endif
                         @endforeach
                         @endif
                     </tbody>
