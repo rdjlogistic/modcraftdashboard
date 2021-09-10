@@ -191,8 +191,8 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-        $.validator.addMethod('filesize', function(value, element, param) {
-            return this.optional(element) || (element.files[0].size <= param) }, 'File size must be less than 5 mb' );
+        // $.validator.addMethod('filesize', function(value, element, param) {
+        //     return this.optional(element) || (element.files[0].size <= param) }, 'File size must be less than 5 mb' );
         $("#editModForm").validate({
             ignore: [],
             errorElement: 'p',
